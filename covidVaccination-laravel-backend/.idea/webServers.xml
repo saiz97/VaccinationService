@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ad133327-ee6d-410f-b62c-92a53715145d" name="hetzner" url="http://covidvaccination.s1810456031.student.kwmhgb.at/">
+        <fileTransfer host="covidvaccination.s1810456031.student.kwmhgb.at" port="222" rootFolder="/usr/home/sstud648/public_html/covidVaccination/covidVaccinationServer" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="222" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
