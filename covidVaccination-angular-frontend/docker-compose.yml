@@ -1,0 +1,11 @@
+version: '3'
+services:
+  angular:
+    build:
+      context: ./
+      dockerfile: Dockerfile-dev
+    ports:
+      - "4200:4200"
+    container_name: angular
+    volumes:
+       - ./:/app
