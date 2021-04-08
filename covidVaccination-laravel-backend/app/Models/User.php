@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,7 +18,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'ssn', 'email',
+        'firstName', 'lastName',
+        'password',
+        'gender', 'dateOfBirth',
+        'phoneNumber',
+        'isVaccinated',
+        'isAdmin',
+        'vaccination_id'
     ];
 
     /**
@@ -37,4 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function vaccination() : BelongsTo {
+        return $this->belongsTo(Vaccination::class);
+    }
 }

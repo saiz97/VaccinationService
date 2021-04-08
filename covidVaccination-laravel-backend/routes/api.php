@@ -17,3 +17,28 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+/*
+POST createUser
+DELETE deleteUser(ssn)
+POST updateUser(ssn)
+GET getUserBySSN
+GET getAllUsers
+ */
+
+/*
+POST createVaccination
+DELETE deleteVaccination(id)
+POST updateVaccination(id)
+GET getVaccinationsByState(state)
+GET getAllVaccinations
+GET getUsersOfVaccination(id)
+ */
+
+/*
+POST createLocation
+DELETE deleteLocation(state)
+POST updateLocation(id)
+GET getAllLocations
+*/

@@ -15,10 +15,22 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('ssn')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('firstName');
+            $table->string('lastName');
             $table->string('password');
+
+            $table->string('gender');
+            $table->date('dateOfBirth');
+            $table->string('phoneNumber')->nullable();
+
+            $table->boolean('isVaccinated')->default(false);
+            $table->boolean('isAdmin')->default(false);
+
+            $table->foreignId('vaccination_id')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });
