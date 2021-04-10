@@ -18,7 +18,7 @@ class VaccinationsTableSeeder extends Seeder
     {
         // Location 1
         $vacLo1_0 = new Vaccination;
-        $vacLo1_0->date = Carbon::createFromFormat("Y.m.d", "2021.04.10");
+        $vacLo1_0->date = Carbon::createFromFormat("Y.m.d", "2021.04.10", "Europe/Vienna");
         $vacLo1_0->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo1_0->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo1_0->availableSlots = 28;
@@ -28,7 +28,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo1_0->save();
 
         $vacLo1_1 = new Vaccination;
-        $vacLo1_1->date = Carbon::createFromFormat("Y.m.d", "2021.04.13");
+        $vacLo1_1->date = Carbon::createFromFormat("Y.m.d", "2021.04.13", "Europe/Vienna");
         $vacLo1_1->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo1_1->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo1_1->availableSlots = 28;
@@ -38,7 +38,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo1_1->save();
 
         $vacLo1_2 = new Vaccination;
-        $vacLo1_2->date = Carbon::createFromFormat("Y.m.d", "2021.04.14");
+        $vacLo1_2->date = Carbon::createFromFormat("Y.m.d", "2021.04.14", "Europe/Vienna");
         $vacLo1_2->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo1_2->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo1_2->availableSlots = 28;
@@ -48,7 +48,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo1_2->save();
 
         $vacLo1_3 = new Vaccination;
-        $vacLo1_3->date = Carbon::createFromFormat("Y.m.d", "2021.04.15");
+        $vacLo1_3->date = Carbon::createFromFormat("Y.m.d", "2021.04.15", "Europe/Vienna");
         $vacLo1_3->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo1_3->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo1_3->availableSlots = 28;
@@ -58,7 +58,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo1_3->save();
 
         $vacLo1_4 = new Vaccination;
-        $vacLo1_4->date = Carbon::createFromFormat("Y.m.d", "2021.04.16");
+        $vacLo1_4->date = Carbon::createFromFormat("Y.m.d", "2021.04.16", "Europe/Vienna");
         $vacLo1_4->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo1_4->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo1_4->availableSlots = 28;
@@ -69,7 +69,7 @@ class VaccinationsTableSeeder extends Seeder
 
         // Location 2
         $vacLo2_0 = new Vaccination;
-        $vacLo2_0->date = Carbon::createFromFormat("Y.m.d", "2021.04.10");
+        $vacLo2_0->date = Carbon::createFromFormat("Y.m.d", "2021.04.10", "Europe/Vienna");
         $vacLo2_0->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo2_0->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo2_0->availableSlots = 28;
@@ -79,7 +79,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo2_0->save();
 
         $vacLo2_1 = new Vaccination;
-        $vacLo2_1->date = Carbon::createFromFormat("Y.m.d", "2021.04.13");
+        $vacLo2_1->date = Carbon::createFromFormat("Y.m.d", "2021.04.13", "Europe/Vienna");
         $vacLo2_1->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo2_1->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo2_1->availableSlots = 28;
@@ -89,7 +89,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo2_1->save();
 
         $vacLo2_2 = new Vaccination;
-        $vacLo2_2->date = Carbon::createFromFormat("Y.m.d", "2021.04.14");
+        $vacLo2_2->date = Carbon::createFromFormat("Y.m.d", "2021.04.14", "Europe/Vienna");
         $vacLo2_2->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo2_2->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo2_2->availableSlots = 28;
@@ -99,7 +99,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo2_2->save();
 
         $vacLo2_3 = new Vaccination;
-        $vacLo2_3->date = Carbon::createFromFormat("Y.m.d", "2021.04.15");
+        $vacLo2_3->date = Carbon::createFromFormat("Y.m.d", "2021.04.15", "Europe/Vienna");
         $vacLo2_3->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo2_3->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo2_3->availableSlots = 28;
@@ -109,7 +109,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo2_3->save();
 
         $vacLo2_4 = new Vaccination;
-        $vacLo2_4->date = Carbon::createFromFormat("Y.m.d", "2021.04.16");
+        $vacLo2_4->date = Carbon::createFromFormat("Y.m.d", "2021.04.16", "Europe/Vienna");
         $vacLo2_4->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo2_4->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo2_4->availableSlots = 28;
@@ -120,7 +120,7 @@ class VaccinationsTableSeeder extends Seeder
 
         // Location 3
         $vacLo3_0 = new Vaccination;
-        $vacLo3_0->date = Carbon::createFromFormat("Y.m.d", "2021.04.10");
+        $vacLo3_0->date = Carbon::createFromFormat("Y.m.d", "2021.04.10", "Europe/Vienna");
         $vacLo3_0->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo3_0->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo3_0->availableSlots = 28;
@@ -130,7 +130,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo3_0->save();
 
         $vacLo3_1 = new Vaccination;
-        $vacLo3_1->date = Carbon::createFromFormat("Y.m.d", "2021.04.13");
+        $vacLo3_1->date = Carbon::createFromFormat("Y.m.d", "2021.04.13", "Europe/Vienna");
         $vacLo3_1->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo3_1->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo3_1->availableSlots = 28;
@@ -140,7 +140,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo3_1->save();
 
         $vacLo3_2 = new Vaccination;
-        $vacLo3_2->date = Carbon::createFromFormat("Y.m.d", "2021.04.14");
+        $vacLo3_2->date = Carbon::createFromFormat("Y.m.d", "2021.04.14", "Europe/Vienna");
         $vacLo3_2->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo3_2->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo3_2->availableSlots = 28;
@@ -150,7 +150,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo3_2->save();
 
         $vacLo3_3 = new Vaccination;
-        $vacLo3_3->date = Carbon::createFromFormat("Y.m.d", "2021.04.15");
+        $vacLo3_3->date = Carbon::createFromFormat("Y.m.d", "2021.04.15", "Europe/Vienna");
         $vacLo3_3->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo3_3->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo3_3->availableSlots = 28;
@@ -160,7 +160,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo3_3->save();
 
         $vacLo3_4 = new Vaccination;
-        $vacLo3_4->date = Carbon::createFromFormat("Y.m.d", "2021.04.16");
+        $vacLo3_4->date = Carbon::createFromFormat("Y.m.d", "2021.04.16", "Europe/Vienna");
         $vacLo3_4->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo3_4->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo3_4->availableSlots = 28;
@@ -171,7 +171,7 @@ class VaccinationsTableSeeder extends Seeder
 
         // Location 4
         $vacLo4_0 = new Vaccination;
-        $vacLo4_0->date = Carbon::createFromFormat("Y.m.d", "2021.04.10");
+        $vacLo4_0->date = Carbon::createFromFormat("Y.m.d", "2021.04.10", "Europe/Vienna");
         $vacLo4_0->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo4_0->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo4_0->availableSlots = 28;
@@ -181,7 +181,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo4_0->save();
 
         $vacLo4_1 = new Vaccination;
-        $vacLo4_1->date = Carbon::createFromFormat("Y.m.d", "2021.04.13");
+        $vacLo4_1->date = Carbon::createFromFormat("Y.m.d", "2021.04.13", "Europe/Vienna");
         $vacLo4_1->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo4_1->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo4_1->availableSlots = 28;
@@ -191,7 +191,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo4_1->save();
 
         $vacLo4_2 = new Vaccination;
-        $vacLo4_2->date = Carbon::createFromFormat("Y.m.d", "2021.04.14");
+        $vacLo4_2->date = Carbon::createFromFormat("Y.m.d", "2021.04.14", "Europe/Vienna");
         $vacLo4_2->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo4_2->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo4_2->availableSlots = 28;
@@ -201,7 +201,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo4_2->save();
 
         $vacLo4_3 = new Vaccination;
-        $vacLo4_3->date = Carbon::createFromFormat("Y.m.d", "2021.04.15");
+        $vacLo4_3->date = Carbon::createFromFormat("Y.m.d", "2021.04.15", "Europe/Vienna");
         $vacLo4_3->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo4_3->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo4_3->availableSlots = 28;
@@ -211,7 +211,7 @@ class VaccinationsTableSeeder extends Seeder
         $vacLo4_3->save();
 
         $vacLo4_4 = new Vaccination;
-        $vacLo4_4->date = Carbon::createFromFormat("Y.m.d", "2021.04.16");
+        $vacLo4_4->date = Carbon::createFromFormat("Y.m.d", "2021.04.16", "Europe/Vienna");
         $vacLo4_4->fromTime = Carbon::createFromTime(10, 00, 00, "Europe/Vienna");
         $vacLo4_4->toTime = Carbon::createFromTime(17, 00, 00, "Europe/Vienna");
         $vacLo4_4->availableSlots = 28;
