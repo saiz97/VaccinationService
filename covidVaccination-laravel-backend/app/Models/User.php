@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -24,8 +24,7 @@ class User extends Authenticatable
         'gender', 'dateOfBirth',
         'phoneNumber',
         'isVaccinated',
-        'isAdmin',
-        'vaccination_id'
+        'isAdmin'
     ];
 
     /**
@@ -46,7 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function vaccination() : BelongsTo {
-        return $this->belongsTo(Vaccination::class);
+    public function reservation() : HasOne {
+        return $this->hasOne(Reservation::class);
     }
 }

@@ -16,11 +16,13 @@ class CreateVaccinationsTable extends Migration
         Schema::create('vaccinations', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->string('fromTime');
-            $table->string('toTime');
-            $table->integer('amountOfAttendees');
+            $table->time('fromTime');
+            $table->time('toTime');
+            $table->integer('availableSlots');
+            $table->integer('slotSizeInMinutes');
+            $table->integer('totalAttendeesPerSlot');
 
-            $table->foreignId('vaccinationLocation_id')->constrained();
+            $table->foreignId('vaccination_location_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

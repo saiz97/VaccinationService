@@ -13,7 +13,9 @@ class Vaccination extends Model
 
     protected $fillable = [
         'date', 'fromTime', 'toTime',
-        'amountOfAttendees', 'vaccinationLocation_id'
+        'availableSlots', 'slotSizeInMinutes',
+        'totalAttendeesPerSlot',
+        'vaccinationLocation_id'
     ];
 
     public function vaccinationLocation() : BelongsTo {
@@ -23,7 +25,7 @@ class Vaccination extends Model
     /**
      * vaccination has many users
      */
-    public function users() : HasMany {
-        return $this->hasMany(User::class);
+    public function reservations() : HasMany {
+        return $this->hasMany(Reservation::class);
     }
 }
