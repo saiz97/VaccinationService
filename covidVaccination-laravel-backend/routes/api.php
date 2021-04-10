@@ -18,27 +18,43 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Users
+Route::post('user', [\App\Http\Controllers\UserController::class, 'save']);
+Route::put('user/{ssn}', [\App\Http\Controllers\UserController::class, 'update']);
+Route::delete('user/{ssn}', [\App\Http\Controllers\UserController::class, 'delete']);
+Route::post('user/login', [\App\Http\Controllers\UserController::class, 'login']);
+Route::get('users', [\App\Http\Controllers\UserController::class, 'getAllUsers']);
+Route::get('user/{ssn}', [\App\Http\Controllers\UserController::class, 'findBySSN']);
 
-/*
-POST createUser
-DELETE deleteUser(ssn)
-POST updateUser(ssn)
-GET getUserBySSN
-GET getAllUsers
- */
+// Reservations
+Route::post('reservation', [\App\Http\Controllers\ReservationController::class, 'save']);
+Route::delete('reservation/user/{user_id}', [\App\Http\Controllers\ReservationController::class, 'delete']);
+Route::get('reservations', [\App\Http\Controllers\ReservationController::class, 'getAllReservations']);
+Route::get('reservation/user/{user_id}', [\App\Http\Controllers\ReservationController::class, 'findByUserId']);
+Route::get('reservations/vaccination/{vaccination_id}', [\App\Http\Controllers\ReservationController::class, 'getAllOfVaccination']);
 
-/*
-POST createVaccination
-DELETE deleteVaccination(id)
-POST updateVaccination(id)
-GET getVaccinationsByState(state)
-GET getAllVaccinations
-GET getUsersOfVaccination(id)
- */
+// Vaccinations
+Route::post('vaccination', [\App\Http\Controllers\VaccinationController::class, 'save']);
+Route::put('vaccination/{id}', [\App\Http\Controllers\VaccinationController::class, 'update']);
+Route::delete('vaccination/{id}', [\App\Http\Controllers\VaccinationController::class, 'delete']);
+Route::get('vaccinations', [\App\Http\Controllers\VaccinationController::class, 'getAllVaccinations']);
+Route::get('vaccinations2', [\App\Http\Controllers\VaccinationController::class, 'getAllRaw']);
+Route::get('vaccination/{id}', [\App\Http\Controllers\VaccinationController::class, 'findById']);
+Route::get('vaccinations/state/{state}', [\App\Http\Controllers\VaccinationController::class, 'getAllOfState']);
+Route::get('vaccination/{id}/users', [\App\Http\Controllers\VaccinationController::class, 'getUsersOfVaccination']);
 
-/*
-POST createLocation
-DELETE deleteLocation(state)
-POST updateLocation(id)
-GET getAllLocations
-*/
+// Locations
+Route::post('location', [\App\Http\Controllers\VaccinationLocationController::class, 'save']);
+Route::put('location/{id}', [\App\Http\Controllers\VaccinationLocationController::class, 'update']);
+Route::delete('location/{id}', [\App\Http\Controllers\VaccinationLocationController::class, 'delete']);
+Route::get('locations', [\App\Http\Controllers\VaccinationLocationController::class, 'getAllLocations']);
+Route::get('location/{id}', [\App\Http\Controllers\VaccinationLocationController::class, 'findById']);
+
+// States
+Route::post('state', [\App\Http\Controllers\StateController::class, 'save']);
+Route::put('state/{state}', [\App\Http\Controllers\StateController::class, 'update']);
+Route::delete('state/{state}', [\App\Http\Controllers\StateController::class, 'delete']);
+Route::get('states', [\App\Http\Controllers\StateController::class, 'getAllStates']);
+Route::get('state/{state}', [\App\Http\Controllers\StateController::class, 'findByName']);
+Route::get('state/{state}/locations', [\App\Http\Controllers\StateController::class, 'getStateLocations']);
+
