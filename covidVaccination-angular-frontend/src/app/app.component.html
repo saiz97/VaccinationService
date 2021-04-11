@@ -1,12 +1,26 @@
-<header>
-  <h2 class="ui header">
-    <i class="syringe icon"></i>
-    <div class="content">
-      Österreich
-      <div class="sub header">impft sich frei</div>
-    </div>
-  </h2>
-</header>
+<div class="ui secondary pointing menu">
+  <div class="left menu">
+    <h2 class="ui header brand">
+      <i class="syringe icon"></i>
+      <div class="content">
+        <div>Österreich</div>
+        <div class="sub header">impft sich frei</div>
+      </div>
+    </h2>
+  </div>
+  <div class="right menu">
+    <a class="item" [routerLink]="" routerLinkActive="active">
+      Zur Impfung anmelden
+    </a>
+    <a class="item" [routerLink]="" routerLinkActive="active">
+      Impftermine verwalten
+    </a>
+    <a class="item" [routerLink]="" routerLinkActive="active">
+      Einloggen
+    </a>
+  </div>
+</div>
+
 <router-outlet>
 
 </router-outlet>
