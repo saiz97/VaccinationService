@@ -51,7 +51,6 @@ class UserController extends Controller
         }
     }
 
-
     public function delete (string $ssn) : JsonResponse {
         $user = User::where('ssn', $ssn)->first();
         if ($user != null) {
@@ -61,10 +60,6 @@ class UserController extends Controller
             throw new \Exception("user with ssn = ' . $ssn . ' couldn't be deleted - it does not exist");
         }
         return response()->json('user with ssn = ' . $ssn . ' successfully deleted', 200);
-    }
-
-    public function login (Request $request) {
-        // TODO: login (email, password check)
     }
 
     public function getAllUsers() {
