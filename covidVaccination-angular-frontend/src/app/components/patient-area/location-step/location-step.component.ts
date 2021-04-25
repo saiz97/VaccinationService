@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StepperService } from 'src/app/service/stepper.service';
 
 @Component({
   selector: 'app-location-step',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationStepComponent implements OnInit {
 
-  constructor() { }
+  constructor(private stepperService: StepperService) { }
 
   ngOnInit(): void {
+    console.log("Location Step!");
   }
+
+  next() {
+    this.stepperService.currentStepIndex.next(3);
+  }
+
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StepperService } from 'src/app/service/stepper.service';
 
 @Component({
   selector: 'app-confirm-step',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmStepComponent implements OnInit {
 
-  constructor() { }
+  constructor(private stepperService: StepperService) { }
 
   ngOnInit(): void {
+    console.log("Confirm Step!");
   }
 
 }

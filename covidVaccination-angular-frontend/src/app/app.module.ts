@@ -18,6 +18,7 @@ import { VaccinationAddComponent } from './components/vaccinations/vaccination-a
 
 import { DataStorageService } from "./service/data-storage.service";
 import { StepperService } from "./service/stepper.service";
+import { StepDirective } from './service/stepper.directive';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { StepperService } from "./service/stepper.service";
     VaccinationItemComponent,
     VaccinationEditComponent,
     VaccinationAddComponent,
+    StepDirective
   ],
   imports: [
     BrowserModule,

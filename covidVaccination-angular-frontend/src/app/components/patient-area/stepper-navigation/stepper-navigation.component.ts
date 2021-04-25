@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StepperService, Step } from 'src/app/service/stepper.service';
 
 @Component({
   selector: 'app-stepper-navigation',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stepper-navigation.component.scss']
 })
 export class StepperNavigationComponent implements OnInit {
+  steps: {[key: number]: boolean} = {
+    1: false,
+    2: false,
+    3: false,
+    4: false
+  };
 
-  constructor() { }
+  constructor(private stepperService: StepperService) { }
 
   ngOnInit(): void {
+    this.stepperService.currentStepIndex.subscribe((index) => {
+      this.steps[index] = true;
+    });
   }
 
 }
