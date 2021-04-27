@@ -1,3 +1,31 @@
-<p>location-step works!</p>
+<h3>Schritt 2: Wählen Sie einen Austragungsort.</h3>
 
-<button (click)="next()">Next</button>
+<div class="step-container">
+
+  <div class="select-container">
+    <label for="selectCity">Stadt</label>
+    <select id="selectCity" [ngModel]="selectedCity"
+      (change)="onChangeCity($event.target.value)"
+      class="ui dropdown">
+      <option value="" [disabled]="cities.size > 0">Stadt auswählen...</option>
+      <option [value]="city" *ngFor="let city of cities">{{city}}</option>
+    </select>
+  </div>
+
+  <div class="select-container">
+    <label for="selectPlace">Austragungsort</label>
+    <select id="selectPlace" [ngModel]="selectedPlace"
+      (change)="selectedPlace = $event.target.value"
+      class="ui dropdown"
+      [disabled]="selectedCity == ''">
+      <option value="">Standort auswählen...</option>
+      <option [value]="place" *ngFor="let place of getPlacesOfSelectedCity()">{{place}}</option>
+    </select>
+  </div>
+
+  <button class="ui secondary button"
+    (click)="next()" type="submit"
+    [disabled]="selectedCity == '' || selectedPlace == ''">Auswahl bestätigen</button>
+</div>
+
+
