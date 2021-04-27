@@ -153,9 +153,10 @@ class VaccinationController extends Controller
 
     public function getAllOfState(string $state) {
         $vacs = DB::table('vaccinations')
+            ->select('vaccinations.*', 'vaccination_locations.state_id',
+                    'vaccination_locations.city', 'vaccination_locations.zipCode', 'vaccination_locations.place', 'states.state')
             ->join('vaccination_locations', 'vaccinations.vaccination_location_id', '=', 'vaccination_locations.id')
             ->join('states', 'vaccination_locations.state_id', '=', 'states.id')
-            ->select('vaccinations.*', 'vaccination_locations.*', 'states.state')
             ->where('states.state', $state)
             ->get();
 
@@ -169,7 +170,6 @@ class VaccinationController extends Controller
             $vac2["state"] = $vac->state;
             $return[] = $vac2;
         }
-
         return $return;
     }
 
