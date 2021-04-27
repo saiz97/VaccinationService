@@ -1,3 +1,19 @@
-<p>appointment-step works!</p>
+<h3>Schritt 3: Wählen Sie einen Impftermin.</h3>
 
-<button (click)="next()">Next</button>
+<div class="ui container">
+
+  <div class="ui middle aligned divided list" *ngIf="vaccinations">
+    <div class="item" *ngFor="let vaccination of vaccinations">
+      <div class="right floated content">
+        <button class="ui btn button" (click)="next($event.target)">Termin buchen</button>
+      </div>
+      <i class="large syringe icon"></i>
+
+      <div class="content">
+        <a class="header">{{vaccination.place}}</a>
+        <div class="description">{{vaccination.date}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+

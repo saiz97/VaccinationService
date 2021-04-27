@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStorageService } from 'src/app/service/data-storage.service';
 import { StepperService } from 'src/app/service/stepper.service';
 
 @Component({
@@ -8,10 +9,19 @@ import { StepperService } from 'src/app/service/stepper.service';
 })
 export class AppointmentStepComponent implements OnInit {
 
-  constructor(private stepperService: StepperService) { }
+  vaccinations;
+
+  constructor(private stepperService: StepperService,
+              private dataService: DataStorageService) { }
 
   ngOnInit(): void {
     console.log("State Step!");
+    if (this.stepperService.steps[1].data) {
+      this.dataService.getVaccinationsOfState(this.stepperService.steps[1].data.state).subscribe((vaccinations) => {
+        this.vaccinations = vaccinations;
+        console.log("All Vaccinations: ",vaccinations);
+      })
+    }
   }
 
   next() {
