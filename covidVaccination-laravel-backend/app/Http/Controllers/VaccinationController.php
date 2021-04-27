@@ -152,12 +152,25 @@ class VaccinationController extends Controller
     }
 
     public function getAllOfState(string $state) {
-        return DB::table('vaccinations')
+        $vacs = DB::table('vaccinations')
             ->join('vaccination_locations', 'vaccinations.vaccination_location_id', '=', 'vaccination_locations.id')
             ->join('states', 'vaccination_locations.state_id', '=', 'states.id')
             ->select('vaccinations.*', 'vaccination_locations.*', 'states.state')
             ->where('states.state', $state)
             ->get();
+
+        $return = [];
+        foreach ($vacs as $vac) {
+            $vac2 = $this->findById($vac->id);
+            $vac2["state_id"] = $vac->state_id;
+            $vac2["city"] = $vac->city;
+            $vac2["zipCode"] = $vac->zipCode;
+            $vac2["place"] = $vac->place;
+            $vac2["state"] = $vac->state;
+            $return[] = $vac2;
+        }
+
+        return $return;
     }
 
     public function getUsersOfVaccination(string $id) {
