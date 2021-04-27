@@ -52,6 +52,6 @@ class StateController extends Controller
     }
 
     function getStateLocations(string $name) {
-        return State::where('state', $name)->with('locations')->get();
+        return State::where('state', $name)->with('locations')->first()->locations;
     }
 }
