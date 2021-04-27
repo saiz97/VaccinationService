@@ -1,3 +1,13 @@
-<h1>Select your State!</h1>
+<h3>Schritt 1: Wählen Sie Ihr Bundesland.</h3>
 
-<button (click)="next()">Next</button>
+<div *ngIf="states" class="ui link cards">
+  <a class="ui card" *ngFor="let state of states" (click)="next(state)">
+    <div class="image">
+      <img src="{{state.imageUrl}}">
+      <div class="title">{{state.state}}</div>
+    </div>
+    <div class="content">
+      <span>Weiter <i class="arrow alternate circle right outline icon"></i></span>
+    </div>
+  </a>
+</div>

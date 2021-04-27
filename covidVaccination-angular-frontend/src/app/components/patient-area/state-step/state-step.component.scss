@@ -1,0 +1,38 @@
+.ui.cards {
+  justify-content: center;
+}
+.card {
+  width: 200px;
+
+  .image {
+    max-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      object-fit: contain;
+    }
+
+    .title {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.767);
+
+      padding: 0.5rem 0;
+      font-size: medium;
+    }
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+  }
+}
