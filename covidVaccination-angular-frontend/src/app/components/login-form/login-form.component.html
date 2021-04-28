@@ -1,1 +1,38 @@
-<p>login-form works!</p>
+<div *ngIf="!isLoggedIn(); Else logout" class="ui container">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (submit)="onLogin()" class="ui large form">
+    <div class="field">
+      <label for="username">Email</label>
+      <input type="email" id="email" formControlName="email">
+      <div *ngIf="loginForm.get('email').invalid
+        && (loginForm.get('email').dirty
+            || loginForm.get('email').touched)
+        && loginForm.get('email').hasError('required')"
+        class="ui negative message">
+        Email ist ein Pflichtfeld.
+      </div>
+      <div *ngIf="loginForm.get('email').invalid
+        && (loginForm.get('email').dirty
+            || loginForm.get('email').touched)
+        && loginForm.get('email').hasError('email')"
+        class="ui negative message">
+        Keine gültige Email-Adresse.
+      </div>
+    </div>
+    <div class="field">
+      <label for="password">Passwort</label>
+      <input type="password" id="password" formControlName="password">
+      <div *ngIf="loginForm.get('password').invalid
+        && (loginForm.get('password').dirty
+            || loginForm.get('password').touched)"
+        class="ui negative message">
+        Passwort ist ein Pflichtfeld.
+      </div>
+    </div>
+    <button type="submit" class="ui button" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>
+
+<ng-template #logout>
+  <button type="button" class="ui button" (click)="onLogout()">Logout</button>
+</ng-template>

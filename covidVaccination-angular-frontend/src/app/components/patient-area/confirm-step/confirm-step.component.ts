@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, User, Response } from 'src/app/auth/auth-service.service';
+import { DataStorageService } from 'src/app/service/data-storage.service';
 import { StepperService } from 'src/app/service/stepper.service';
 
 @Component({
@@ -8,10 +10,13 @@ import { StepperService } from 'src/app/service/stepper.service';
 })
 export class ConfirmStepComponent implements OnInit {
 
-  constructor(private stepperService: StepperService) { }
+  user: User = null;
+
+  constructor(private stepperService: StepperService,
+              private dataService: DataStorageService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
-    console.log("Confirm Step!");
+    console.log("Confirm Step!", this.stepperService.steps);
   }
-
 }

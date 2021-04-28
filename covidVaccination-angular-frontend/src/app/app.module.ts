@@ -21,6 +21,7 @@ import { VaccinationAddComponent } from './components/vaccinations/vaccination-a
 import { DataStorageService } from "./service/data-storage.service";
 import { StepperService } from "./service/stepper.service";
 import { StepDirective } from './service/stepper.directive';
+import { AuthService } from './auth/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { StepDirective } from './service/stepper.directive';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ DataStorageService, StepperService ],
+  providers: [ DataStorageService, StepperService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

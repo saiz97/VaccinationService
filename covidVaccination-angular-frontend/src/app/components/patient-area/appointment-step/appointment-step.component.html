@@ -5,7 +5,14 @@
   <div class="ui middle aligned divided list" *ngIf="vaccinations">
     <div class="item" *ngFor="let vaccination of vaccinations">
       <div class="right floated content">
-        <button class="ui btn button" (click)="next($event.target)">Termin buchen</button>
+        <select class="ui dropdown" id="select_{{vaccination.id}}">
+          <option value="{{slot.key}}"
+            *ngFor="let slot of vaccination.reservationSlots | keyvalue"
+            [disabled]="+slot.value >= vaccination.totalAttendeesPerSlot"
+            [selected]="+slot.value < vaccination.totalAttendeesPerSlot"
+            >{{slot.key}}</option>
+        </select>
+        <button class="ui btn button" (click)="next(vaccination)">Termin buchen</button>
       </div>
       <i class="large syringe icon"></i>
 

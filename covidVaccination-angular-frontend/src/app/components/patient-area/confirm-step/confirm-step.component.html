@@ -1,2 +1,3 @@
-<p>confirm-step works!</p>
-
+<div *ngIf="user == null">
+  <app-login-form (user)="user = $event"></app-login-form>
+</div>
