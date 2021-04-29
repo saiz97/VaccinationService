@@ -65,7 +65,16 @@ class VaccinationLocationController extends Controller
     }
 
     public function getAllLocations() {
-        return VaccinationLocation::all();
+        $locs = VaccinationLocation::with(['state'])->get();
+
+        foreach ($locs as $loc) {
+            $loc["stateName"] = $loc->state->state;
+            unset($loc->created_at);
+            unset($loc->updated_at);
+            unset($loc->state);
+        }
+
+        return $locs;
     }
 
     public function findById(string $id) {
