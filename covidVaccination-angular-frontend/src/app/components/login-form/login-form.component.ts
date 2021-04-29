@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService, User } from 'src/app/auth/auth-service.service';
+import { AuthService } from 'src/app/auth/auth-service.service';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-login-form',
@@ -9,8 +10,11 @@ import { AuthService, User } from 'src/app/auth/auth-service.service';
 })
 export class LoginFormComponent implements OnInit {
   @Output() user = new EventEmitter<User>();
+  @Input() showHeadline: boolean = true;
+  @Input() btnLabel: string = "Einloggen";
 
   loginForm: FormGroup;
+  currentUser: User;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService) { }
@@ -20,6 +24,11 @@ export class LoginFormComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required]]
     });
+
+    if (this.authService.isLoggedIn()) {
+      this.currentUser = this.authService.getCurrentUser();
+      this.user.emit(this.currentUser);
+    }
   }
 
   isLoggedIn() {
@@ -37,8 +46,8 @@ export class LoginFormComponent implements OnInit {
     if(val.email && val.password) {
       this.authService.login(val.email, val.password).subscribe(result => {
         this.authService.setSessionStorage(result.access_token);
-        const user: User = this.authService.decodeToken();
-        this.user.emit(user);
+        this.currentUser = this.authService.getCurrentUser();
+        this.user.emit(this.currentUser);
       });
     } else {
       // error

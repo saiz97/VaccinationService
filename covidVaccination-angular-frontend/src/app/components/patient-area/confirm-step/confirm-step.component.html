@@ -1,3 +1,53 @@
-<div *ngIf="user == null">
-  <app-login-form (user)="user = $event"></app-login-form>
+<div *ngIf="user == null; else userExists">
+  <div class="intro">
+    <h3>Schritt 4: Einloggen um mit der Buchung fortzufahren</h3>
+    <h4>Melden Sie sich mit einem vorhandenen Konto an.</h4>
+  </div>
+  <app-login-form (user)="user = $event" showHeadline="false" btnLabel="Einloggen und fortfahren"></app-login-form>
 </div>
+
+<ng-template #userExists>
+  <div class="ui container" *ngIf="!isVaccinated; else userIsVaccinated">
+    <div class="intro">
+      <h3>Schritt 4: Auswahl bestätigen und Buchung abschließen</h3>
+      <h4>Stimmen Ihre Daten und sind Sie mit dem gewählten Termin zufrieden?</h4>
+    </div>
+
+    <table class="ui definition table">
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>{{ user.firstName + " " + user.lastName }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+          <td>Datum</td>
+          <td>{{ vaccination.date }}</td>
+        </tr>
+        <tr>
+          <td>Zeitraum</td>
+          <td>{{ selectedTimeSlot }}</td>
+        </tr>
+        <tr>
+          <td>Ort</td>
+          <td>{{ vaccination.state + ", " + vaccination.city }} ({{vaccination.zipCode}})</td>
+        </tr>
+        <tr>
+          <td>Standort</td>
+          <td>{{ vaccination.place }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="ui btn button secondary" type="button" (click)="confirmBooking()">Buchung bestätigen und abschließen</button>
+  </div>
+
+  <ng-template #userIsVaccinated>
+    <div class="intro">
+      <h3>Sie haben bereits eine Buchung für einen Impftermin abgeschlossen!</h3>
+    </div>
+  </ng-template>
+</ng-template>

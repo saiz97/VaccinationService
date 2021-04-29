@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { User } from '../model/user';
 
 export interface Response {
   access_token: string;
@@ -16,18 +17,9 @@ interface Token {
     email: string,
     firstName: string,
     lastName: string,
-    isAdmin: boolean
+    isAdmin: boolean,
+    isVaccinated: boolean,
   }
-}
-
-export class User {
-  constructor(
-    public id: string,
-    public ssn: number,
-    public email: string,
-    public firstName: string,
-    public lastName: string,
-    public isAdmin: boolean) {}
 }
 
 @Injectable({
@@ -35,7 +27,6 @@ export class User {
 })
 export class AuthService {
   private BASE_URL: string = "http://covidvaccination.s1810456031.student.kwmhgb.at/api/auth";
-  user: User = null;
 
   constructor(private http: HttpClient) { }
 
@@ -53,23 +44,30 @@ export class AuthService {
   public decodeToken(): User {
     if (sessionStorage.getItem("token")) {
       const decodedToken = jwt_decode(sessionStorage.getItem("token")) as Token;
-
-      this.user = new User(decodedToken.user.id, decodedToken.user.ssn, decodedToken.user.email,
-                            decodedToken.user.firstName, decodedToken.user.lastName, (+decodedToken.user.isAdmin == 1));
-      return this.user;
+      return new User(+decodedToken.user.id, decodedToken.user.ssn, decodedToken.user.email,
+                            decodedToken.user.firstName, decodedToken.user.lastName,
+                            (+decodedToken.user.isAdmin == 1));
     } {
       return null;
     }
   }
 
-  public getCurrentUserId() {
-    return Number.parseInt(sessionStorage.getItem("userId"));
+  public getCurrentUser(): User {
+    return this.decodeToken();
   }
 
   public logout() {
     this.http.post(`${this.BASE_URL}/logout`, {});
     sessionStorage.removeItem("token");
     console.log("logged out");
+  }
+
+  isAdmin() {
+    if (this.isLoggedIn()) {
+      return this.getCurrentUser().isAdmin;
+    } else {
+      return false;
+    }
   }
 
   isLoggedIn() {

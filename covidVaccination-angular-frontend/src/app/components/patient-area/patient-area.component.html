@@ -1,8 +1,22 @@
 <div class="ui container">
-  <h1>Anmeldung zur Corona Impfung.</h1>
-  <app-stepper-navigation></app-stepper-navigation>
+  <div *ngIf="!( this.isFinished || this.isVaccinated ); else finishedMsg">
+    <h1>Anmeldung zur Corona Impfung.</h1>
+    <app-stepper-navigation></app-stepper-navigation>
+  </div>
 
   <div class="ui container step">
     <ng-template stepHost></ng-template>
   </div>
 </div>
+
+<ng-template class="ui container" #finishedMsg>
+  <ng-container *ngIf="!isVaccinated; else userIsVaccinated">
+    <h1>Vielen Dank für Ihre Buchung.</h1>
+    <h3>Sie tragen dazu bei Österreich wieder gesund zu machen!</h3>
+  </ng-container>
+</ng-template>
+
+<ng-template #userIsVaccinated>
+  <h1>Bereits eine Buchung vorhanden!</h1>
+  <h3>Ihre Impfung findet am {{ reservation.vaccinationDate }} um {{ reservation.selectedSlotLabel }} statt.</h3>
+</ng-template>

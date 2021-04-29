@@ -34,11 +34,6 @@ export class AppointmentStepComponent implements OnInit {
     }
   }
 
-  isValidSelect(btn) {
-    console.log("==== ", btn);
-    return true;
-  }
-
   next(vac: Vaccination) {
     const select = (<HTMLSelectElement>document.querySelector("#select_" + vac.id));
     const selectedIndex = select.selectedIndex;

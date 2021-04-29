@@ -17,7 +17,8 @@ export class StepperService {
      1: { component: StateStepComponent, visited: false },
      2: { component: LocationStepComponent, visited: false },
      3: { component: AppointmentStepComponent, visited: false },
-     4: { component: ConfirmStepComponent, visited: false }
+     4: { component: ConfirmStepComponent, visited: false },
+     5: { component: null, visited: false }
   };
 
   currentStepIndex = new BehaviorSubject<number>(1);

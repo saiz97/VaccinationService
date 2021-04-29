@@ -1,4 +1,7 @@
-<h3>Schritt 1: Wählen Sie Ihr Bundesland.</h3>
+<div class="intro">
+  <h3>Schritt 1: Bundesland auswählen</h3>
+  <h4>Wählen Sie das Bundesland in dem die Impfung durchgeführt werden soll.</h4>
+</div>
 
 <div *ngIf="states" class="ui link cards">
   <a class="ui card" *ngFor="let state of states" (click)="next(state)">

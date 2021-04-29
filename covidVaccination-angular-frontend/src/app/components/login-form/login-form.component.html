@@ -1,5 +1,5 @@
 <div *ngIf="!isLoggedIn(); Else logout" class="ui container">
-  <h1>Login</h1>
+  <h1 *ngIf="showHeadline == true">Einloggen</h1>
   <form [formGroup]="loginForm" (submit)="onLogin()" class="ui large form">
     <div class="field">
       <label for="username">Email</label>
@@ -29,10 +29,29 @@
         Passwort ist ein Pflichtfeld.
       </div>
     </div>
-    <button type="submit" class="ui button" [disabled]="loginForm.invalid">Login</button>
+    <button type="submit" class="ui button" [class.secondary]="loginForm.valid" [disabled]="loginForm.invalid">{{btnLabel}}</button>
   </form>
 </div>
 
 <ng-template #logout>
-  <button type="button" class="ui button" (click)="onLogout()">Logout</button>
+  <div class="ui container logout-container">
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th colspan="2">Eingeloggt als:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>{{ currentUser.firstName + " " + currentUser.lastName }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ currentUser.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="ui secondary button" (click)="onLogout()">Logout</button>
+  </div>
 </ng-template>
