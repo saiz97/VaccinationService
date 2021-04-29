@@ -82,9 +82,11 @@ class ReservationController extends Controller
     public function findByUserId(string $user_id) {
         $reservation = Reservation::with(['vaccination'])->where('user_id', $user_id)->first();
 
-        $vac = VaccinationController::modifyVaccinationAddTimeSlotArray($reservation->vaccination);
-        $reservation["vaccinationDate"] = $vac->date;
-        $reservation["selectedSlotLabel"] = array_keys($vac->reservationSlots)[$reservation->selectedSlot];
+        if ($reservation) {
+            $vac = VaccinationController::modifyVaccinationAddTimeSlotArray($reservation->vaccination);
+            $reservation["vaccinationDate"] = $vac->date;
+            $reservation["selectedSlotLabel"] = array_keys($vac->reservationSlots)[$reservation->selectedSlot];
+        }
 
         unset($reservation->created_at);
         unset($reservation->updated_at);
@@ -92,6 +94,4 @@ class ReservationController extends Controller
 
         return $reservation;
     }
-
-
 }
