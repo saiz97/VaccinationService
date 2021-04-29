@@ -24,7 +24,6 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'gender', 'dateOfBirth',
         'phoneNumber',
-        'isVaccinated',
         'isAdmin'
     ];
 
@@ -50,8 +49,6 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne(Reservation::class);
     }
 
-
-
     public function getJWTIdentifier() {
         return $this->getKey();
     }
@@ -64,7 +61,6 @@ class User extends Authenticatable implements JWTSubject
             'firstName' => $this->firstName,
             'lastName' => $this->lastName,
             'isAdmin' => $this->isAdmin,
-            'isVaccinated' => $this->isVaccinated
             ]
         ];
     }

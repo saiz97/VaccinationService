@@ -127,7 +127,7 @@ class VaccinationController extends Controller
         return $this->modifyVaccinationAddTimeSlotArray(Vaccination::find($id));
     }
 
-    private function modifyVaccinationAddTimeSlotArray($vac) {
+    public static function modifyVaccinationAddTimeSlotArray($vac) {
         $slots = array_fill(1, $vac->availableSlots, 0);
 
         $slotSizeInMinutes = strtotime("00:". $vac->slotSizeInMinutes . ":00");
