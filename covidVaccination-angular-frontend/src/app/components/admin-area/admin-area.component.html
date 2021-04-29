@@ -1,1 +1,38 @@
-<p>admin-area works!</p>
+<div class="container">
+    <div class="left-panel">
+      <h1>Impftermine verwalten</h1>
+      <div class="filter-container">
+        <div class="filter-options">
+        <select class="ui dropdown" (change)="onStateChange($event.target.value)">
+            <option [value]="state" *ngFor="let state of states">{{state}}</option>
+          </select>
+
+          <select class="ui dropdown" [disabled]="!filteredCities" (change)="onCityChange($event.target.value)">
+            <option [value]="city.key" *ngFor="let city of filteredCities | keyvalue">{{city.key}}</option>
+          </select>
+
+          <select class="ui dropdown" [disabled]="!filteredPlaces">
+            <option [value]="place.key" *ngFor="let place of filteredPlaces | keyvalue">{{place.key}}</option>
+          </select>
+
+          <div class="ui input">
+            <input type="date">
+          </div>
+        </div>
+
+        <button class="ui labeled icon button" (click)="onSetFilter()">
+          <i class="filter icon"></i>
+          Filter setzen
+        </button>
+      </div>
+
+      <button class="ui labeled icon button add-btn" (click)="onSetFilter()">
+        <i class="plus icon"></i>
+        Impftermin hinzufügen
+      </button>
+    </div>
+    <div class="right-panel">
+
+    </div>
+  </div>
+
