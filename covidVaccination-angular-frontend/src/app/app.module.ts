@@ -13,10 +13,8 @@ import { StateStepComponent } from './components/patient-area/state-step/state-s
 import { LocationStepComponent } from './components/patient-area/location-step/location-step.component';
 import { AppointmentStepComponent } from './components/patient-area/appointment-step/appointment-step.component';
 import { ConfirmStepComponent } from './components/patient-area/confirm-step/confirm-step.component';
-import { VaccinationListComponent } from './components/vaccinations/vaccination-list/vaccination-list.component';
-import { VaccinationItemComponent } from './components/vaccinations/vaccination-item/vaccination-item.component';
-import { VaccinationEditComponent } from './components/vaccinations/vaccination-edit/vaccination-edit.component';
-import { VaccinationAddComponent } from './components/vaccinations/vaccination-add/vaccination-add.component';
+import { VaccinationEditComponent } from './components/admin-area/vaccinations/vaccination-edit/vaccination-edit.component';
+import { VaccinationAddComponent } from './components/admin-area/vaccinations/vaccination-add/vaccination-add.component';
 
 import { DataStorageService } from "./service/data-storage.service";
 import { StepperService } from "./service/stepper.service";
@@ -34,8 +32,6 @@ import { AuthService } from './auth/auth-service.service';
     LocationStepComponent,
     AppointmentStepComponent,
     ConfirmStepComponent,
-    VaccinationListComponent,
-    VaccinationItemComponent,
     VaccinationEditComponent,
     VaccinationAddComponent,
     StepDirective
