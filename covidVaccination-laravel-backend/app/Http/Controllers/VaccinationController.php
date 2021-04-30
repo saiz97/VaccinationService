@@ -121,6 +121,14 @@ class VaccinationController extends Controller
         $vacs = Vaccination::with(['reservations'])->get();
         foreach ($vacs as $vac) {
             $vac = $this->modifyVaccinationAddTimeSlotArray($vac);
+
+            $locController = new VaccinationLocationController();
+            $loc = $locController->findById($vac->vaccination_location_id);
+
+            $vac["state"] = $loc->state->state;
+            $vac["city"] = $loc->city;
+            $vac["place"] = $loc->place;
+            $vac["zipCode"] = $loc->zipCode;
         }
         return $vacs;
     }

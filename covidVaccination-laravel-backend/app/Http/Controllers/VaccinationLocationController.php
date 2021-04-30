@@ -78,6 +78,6 @@ class VaccinationLocationController extends Controller
     }
 
     public function findById(string $id) {
-        return VaccinationLocation::with(['state'])->where('id', $id)->get();
+        return VaccinationLocation::with(['state'])->where('id', $id)->first();
     }
 }
