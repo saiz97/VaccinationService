@@ -20,19 +20,37 @@
           </div>
         </div>
 
-        <button class="ui labeled icon button" (click)="onSetFilter()">
+        <button class="ui secondary labeled icon button" (click)="onSetFilter()">
           <i class="filter icon"></i>
           Filter setzen
         </button>
       </div>
 
-      <button class="ui labeled icon button add-btn" routerLink="termin/new">
+      <button class="ui secondary labeled icon button add-btn" routerLink="termin/new">
         <i class="plus icon"></i>
         Impftermin hinzufügen
       </button>
     </div>
     <div class="right-panel">
 
+      <div class="ui middle aligned divided list" *ngIf="vaccinations">
+        <div class="item" *ngFor="let vaccination of vaccinations">
+          <div class="right floated content">
+            <button class="ui icon button" routerLink="termin/{{vaccination.id}}"><i class="edit icon"></i></button>
+            <button class="ui icon button" (click)="onDelete(vaccination.id)"><i class="trash icon"></i></button>
+          </div>
+          <i class="large syringe icon"></i>
+
+          <div class="content">
+            <h4 class="header">{{vaccination.state}}
+              <i class="chevron right icon"></i> {{vaccination.city}}
+              <i class="chevron right icon"></i> {{vaccination.place}}
+            </h4>
+            <div class="description">{{vaccination.date | date:'longDate' }} | {{vaccination.fromTime | slice:0:5}} - {{vaccination.toTime | slice:0:5}}</div>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
 

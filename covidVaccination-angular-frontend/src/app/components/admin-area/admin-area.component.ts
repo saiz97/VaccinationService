@@ -31,7 +31,11 @@ export class AdminAreaComponent implements OnInit {
 
       this.filteredCities = new Map([...this.cities].filter(([k, v]) => v == [...this.states][0]));
       this.filteredPlaces = new Map([...this.places].filter(([k, v]) => v == [...this.filteredCities].reverse()[0][0]));
-    })
+    });
+
+    this.dataService.getAllVaccinations().subscribe((vaccinations) => {
+      this.vaccinations = vaccinations;
+    });
   }
 
   onStateChange(state) {
@@ -41,6 +45,16 @@ export class AdminAreaComponent implements OnInit {
 
   onCityChange(city) {
     this.filteredPlaces = new Map([...this.places].filter(([k, v]) => v == city));
+  }
+
+  onDelete(vacId: number) {
+    if(confirm("Impftermin wirklich löschen?")) {
+      this.dataService.deleteVaccination(vacId).subscribe((res) => {
+        this.vaccinations = this.vaccinations.filter(function( vac ) {
+          return vac.id !== vacId;
+        });
+      });
+    }
   }
 
   onSetFilter() {

@@ -30,4 +30,17 @@
 
 .right-panel {
   grid-area: right-panel;
+  padding: 1rem 3rem;
+}
+
+@media only screen and (max-width: 1160px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    .left-panel {
+      border-bottom: 0.2rem solid #000;
+      padding-bottom: 1rem;
+    }
+  }
 }

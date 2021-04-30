@@ -37,6 +37,10 @@ export class DataStorageService {
     return this.http.get(`${this.BASE_URL}/reservation/user/${userId}`).pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  getAllVaccinations(): Observable<Array<Vaccination>> {
+    return this.http.get(`${this.BASE_URL}/vaccinations`).pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   saveBookingOfUser(userId: number, vacId: number, slot: number): Observable<any> {
     return this.http.post(`${this.BASE_URL}/reservation`,
                 { user_id: userId, vaccination_id: vacId, selectedSlot: slot } as Reservation)
@@ -48,6 +52,10 @@ export class DataStorageService {
                 .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  deleteVaccination(vacId: number): Observable<any> {
+    return this.http.delete(`${this.BASE_URL}/vaccination/${vacId}`)
+                .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
 
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);

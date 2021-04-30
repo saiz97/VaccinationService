@@ -6,14 +6,6 @@ import { Vaccination } from 'src/app/model/vaccination';
 import { VaccinationFactory } from 'src/app/model/vaccination-factory';
 import { DataStorageService } from 'src/app/service/data-storage.service';
 
-/*
-"date": "2021.04.23",
-    "fromTime": "10:00:00",
-    "toTime": "18:00:00",
-    "availableSlots": 32,
-    "totalAttendeesPerSlot": 5,
-    "vaccination_location_id": 1
- */
 @Component({
   selector: 'app-vaccination-add',
   templateUrl: './vaccination-add.component.html',
