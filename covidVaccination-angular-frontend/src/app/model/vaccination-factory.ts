@@ -3,7 +3,7 @@ import { Time } from "@angular/common";
 
 export class VaccinationFactory {
   static empty(): Vaccination {
-    return new Vaccination(null, new Date(), {hours: 0, minutes: 0} as Time, {hours: 0, minutes: 0} as Time, 0, 15, 0, 0, new Map<string, number>());
+    return new Vaccination(null, new Date(), "", "", 0, 15, 0, 0);
   }
 
   static fromObject(rawVac: any): Vaccination {

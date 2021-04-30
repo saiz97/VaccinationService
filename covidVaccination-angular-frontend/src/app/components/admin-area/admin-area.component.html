@@ -3,7 +3,7 @@
       <h1>Impftermine verwalten</h1>
       <div class="filter-container">
         <div class="filter-options">
-        <select class="ui dropdown" (change)="onStateChange($event.target.value)">
+          <select class="ui dropdown" (change)="onStateChange($event.target.value)">
             <option [value]="state" *ngFor="let state of states">{{state}}</option>
           </select>
 
@@ -26,7 +26,7 @@
         </button>
       </div>
 
-      <button class="ui labeled icon button add-btn" (click)="onSetFilter()">
+      <button class="ui labeled icon button add-btn" routerLink="termin/new">
         <i class="plus icon"></i>
         Impftermin hinzufügen
       </button>

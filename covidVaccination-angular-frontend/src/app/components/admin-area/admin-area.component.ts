@@ -46,8 +46,4 @@ export class AdminAreaComponent implements OnInit {
   onSetFilter() {
 
   }
-
-  onAddVaccination() {
-
-  }
 }

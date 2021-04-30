@@ -1,1 +1,85 @@
-<p>vaccination-add works!</p>
+<div class="ui container">
+
+  <form [formGroup]="addForm" class="ui large form" (submit)="saveVaccination()">
+    <div class="field">
+      <label for="fc_state">Bundesland:</label>
+      <select id="fc_state" class="ui dropdown" (change)="onStateChange($event.target.value)">
+        <option [value]="state" *ngFor="let state of states">{{state}}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="fc_city">Stadt:</label>
+      <select id="fc_city" class="ui dropdown" [disabled]="!filteredCities" (change)="onCityChange($event.target.value)">
+        <option [value]="city.key" *ngFor="let city of filteredCities | keyvalue">{{city.key}}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="fc_place">Austragungsort:</label>
+      <select id="fc_place" class="ui dropdown" [disabled]="!filteredPlaces" formControlName="place">
+        <option [value]="place.key" *ngFor="let place of filteredPlaces | keyvalue">{{place.key}}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="fc_date">Datum:</label>
+      <div class="ui input">
+        <input type="date" id="fc_date" formControlName="date" />
+      </div>
+      <div *ngIf="errors.date" class="ui negative message">{{ errors.date }}</div>
+    </div>
+
+    <div class="field">
+      <label for="fc_from">Startzeit:</label>
+      <div class="ui input">
+        <input type="time" id="fc_from" formControlName="fromTime" />
+      </div>
+      <div *ngIf="errors.fromTime" class="ui negative message">{{ errors.fromTime }}</div>
+    </div>
+
+    <div class="field">
+      <label for="fc_to">Endzeit:</label>
+      <div class="ui input">
+        <input type="time" id="fc_to" formControlName="toTime" />
+      </div>
+      <div *ngIf="errors.toTime" class="ui negative message">{{ errors.toTime }}</div>
+    </div>
+
+    <div class="field">
+      <label for="fc_slotSize">Dauer eines Zeitslots [in Minuten]:</label>
+      <div class="ui input">
+        <input type="number" id="fc_slotSize" formControlName="slotSize" min="1" max="60"/>
+        <div>= {{getAmountOfSlots()}} Zeitslots gesamt</div>
+      </div>
+      <div *ngIf="errors.slotSize" class="ui negative message">{{ errors.slotSize }}</div>
+    </div>
+
+    <div class="field">
+      <label for="fc_attendees">Patienten pro Zeitslot:</label>
+      <div class="ui input">
+        <input type="number" id="fc_attendees" formControlName="attendees" min="0"/>
+      </div>
+      <div *ngIf="errors.attendees" class="ui negative message">{{ errors.attendees }}</div>
+    </div>
+
+    <button class="ui icon button" routerLink="../../">Abbrechen</button>
+
+    <button type="submit" class="ui secondary button" [disabled]="addForm.invalid">Speichern</button>
+  </form>
+
+  <hr>
+  <div class="ui styled fluid accordion">
+    <div class="title" (click)="isDemoOpen = !isDemoOpen">
+      <i class="dropdown icon" [class.active]="isDemoOpen"></i>
+      Zeitslot Demo:
+    </div>
+    <div class="content" [class.active]="isDemoOpen">
+      <ul>
+        <li *ngFor="let slot of getTimeSlotDemo()">{{slot}}</li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
