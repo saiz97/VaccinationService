@@ -30,6 +30,7 @@ Route::group(['middleware' => ['api', 'auth.jwt']], function () {
     Route::delete('user/{ssn}', [\App\Http\Controllers\UserController::class, 'delete']);
     Route::get('users', [\App\Http\Controllers\UserController::class, 'getAllUsers']);
     Route::get('user/{ssn}', [\App\Http\Controllers\UserController::class, 'findBySSN']);
+    Route::get('user/isAdmin/{ssn}', [\App\Http\Controllers\UserController::class, 'isAdmin']);
 
     // Reservations
     Route::post('reservation', [\App\Http\Controllers\ReservationController::class, 'save']);

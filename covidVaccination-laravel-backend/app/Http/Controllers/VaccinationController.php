@@ -16,7 +16,9 @@ class VaccinationController extends Controller
      */
     private function parseRequest(Request $request) : Request {
         if (isset($request['date'])) {
-            $request['date'] = Carbon::createFromFormat('Y.m.d', $request->date, "Europe/Vienna");
+            $date = new \DateTime($request->published);
+            $request['date'] = $date;
+            // $request['date'] = Carbon::createFromFormat('Y-m-d', $request->date, "Europe/Vienna");
         }
 
         if (isset($request['fromTime'])) {
