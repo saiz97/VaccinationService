@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,12 @@ import { DataStorageService } from "./service/data-storage.service";
 import { StepperService } from "./service/stepper.service";
 import { StepDirective } from './service/stepper.directive';
 import { AuthService } from './auth/auth-service.service';
+
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeDEAT from '@angular/common/locales/de-AT';
+import { TokenInterceptor } from './auth/token.interceptor';
+registerLocaleData(localeDEAT);
 
 @NgModule({
   declarations: [
@@ -43,7 +49,19 @@ import { AuthService } from './auth/auth-service.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ DataStorageService, StepperService, AuthService ],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'de-at'
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    DataStorageService,
+    StepperService,
+    AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
