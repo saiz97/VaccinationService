@@ -16,7 +16,7 @@ class VaccinationController extends Controller
      */
     private function parseRequest(Request $request) : Request {
         if (isset($request['date'])) {
-            $date = new \DateTime($request->published);
+            $date = new \DateTime($request->date);
             $request['date'] = $date;
             // $request['date'] = Carbon::createFromFormat('Y-m-d', $request->date, "Europe/Vienna");
         }
@@ -29,7 +29,9 @@ class VaccinationController extends Controller
             $request['toTime'] = Carbon::createFromFormat('H:i:s', $request->toTime, "Europe/Vienna");
         }
 
-        $request['slotSizeInMinutes'] = $this->calcSlotSize($request->fromTime, $request->toTime, $request->availableSlots);
+        if (isset($request['slotSizeInMinutes'])) {
+            $request['slotSizeInMinutes'] = $this->calcSlotSize($request->fromTime, $request->toTime, $request->availableSlots);
+        }
 
         return $request;
     }

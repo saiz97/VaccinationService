@@ -76,12 +76,24 @@ class ReservationController extends Controller
     }
 
     public function getAllOfVaccination(string $vac_id) {
-        return Reservation::where('vaccination_id', $vac_id)->get();
+        $reservations = Reservation::with(['user', 'vaccination'])->where('vaccination_id', $vac_id)->get();
+
+        foreach ($reservations as $reservation) {
+            $reservation = $this->addVaccinationFormatted($reservation);
+        }
+
+        return $reservations;
     }
 
     public function findByUserId(string $user_id) {
         $reservation = Reservation::with(['vaccination'])->where('user_id', $user_id)->first();
 
+        $reservation = $this->addVaccinationFormatted($reservation);
+
+        return $reservation;
+    }
+
+    private function addVaccinationFormatted($reservation) {
         if ($reservation) {
             $vac = VaccinationController::modifyVaccinationAddTimeSlotArray($reservation->vaccination);
             $reservation["vaccinationDate"] = $vac->date;

@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('phoneNumber')->nullable();
 
             $table->boolean('isAdmin')->default(false);
+            $table->boolean('isVaccinated')->default(false);
 
             $table->rememberToken();
             $table->timestamps();

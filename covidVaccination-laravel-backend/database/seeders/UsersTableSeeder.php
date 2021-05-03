@@ -36,7 +36,6 @@ class UsersTableSeeder extends Seeder
             $user1->gender = "male";
             $user1->dateOfBirth = Carbon::createFromFormat('Y.m.d', '1997.11.23');
             $user1->phoneNumber = "";
-            $user1->isAdmin = false;
         $user1->save();
 
         $user2 = new User;
@@ -48,7 +47,6 @@ class UsersTableSeeder extends Seeder
             $user2->gender = "female";
             $user2->dateOfBirth = Carbon::createFromFormat('Y.m.d', '1999.04.03');
             $user2->phoneNumber = "";
-            $user2->isAdmin = false;
         $user2->save();
 
         $user3 = new User;
@@ -60,7 +58,6 @@ class UsersTableSeeder extends Seeder
             $user3->gender = "female";
             $user3->dateOfBirth = Carbon::createFromFormat('Y.m.d', '1990.12.15');
             $user3->phoneNumber = "";
-            $user3->isAdmin = false;
         $user3->save();
     }
 }
