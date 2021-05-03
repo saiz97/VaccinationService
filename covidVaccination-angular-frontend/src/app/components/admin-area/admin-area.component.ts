@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Vaccination } from 'src/app/model/vaccination';
 import { DataStorageService } from 'src/app/service/data-storage.service';
 
@@ -9,16 +10,20 @@ import { DataStorageService } from 'src/app/service/data-storage.service';
 })
 export class AdminAreaComponent implements OnInit {
 
+  labelStateFilter: string = "Bundesland auswählen...";
+  labelCityFilter: string = "Stadt auswählen...";
+  labelPlaceFilter: string = "Austragungsort auswählen...";
+
+  filterForm: FormGroup;
+
   states: Set<string> = new Set<string>();
   cities: Map<string, string> = new Map();
   places: Map<string, string> = new Map();
 
-  filteredCities;
-  filteredPlaces;
-
   vaccinations: Vaccination[] = [];
+  shownVaccinations: Vaccination[] = [];
 
-  constructor(private dataService: DataStorageService) { }
+  constructor(private dataService: DataStorageService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.dataService.getAllLocations().subscribe((locations) => {
@@ -28,23 +33,22 @@ export class AdminAreaComponent implements OnInit {
         this.cities.set(loc.city, loc.stateName);
         this.places.set(loc.place, loc.city);
       });
-
-      this.filteredCities = new Map([...this.cities].filter(([k, v]) => v == [...this.states][0]));
-      this.filteredPlaces = new Map([...this.places].filter(([k, v]) => v == [...this.filteredCities].reverse()[0][0]));
     });
 
     this.dataService.getAllVaccinations().subscribe((vaccinations) => {
-      this.vaccinations = vaccinations;
+      this.shownVaccinations = (this.vaccinations = vaccinations);
     });
+
+    this.initForm();
   }
 
-  onStateChange(state) {
-    this.filteredCities = new Map([...this.cities].filter(([k, v]) => v == state));
-    this.filteredPlaces = new Map([...this.places].filter(([k, v]) => v == [...this.filteredCities].reverse()[0][0]));
-  }
-
-  onCityChange(city) {
-    this.filteredPlaces = new Map([...this.places].filter(([k, v]) => v == city));
+  initForm() {
+    this.filterForm = this.formBuilder.group({
+      state: this.labelStateFilter,
+      city: this.labelCityFilter,
+      place: this.labelPlaceFilter,
+      date: ''
+    })
   }
 
   onDelete(vacId: number) {
@@ -58,6 +62,22 @@ export class AdminAreaComponent implements OnInit {
   }
 
   onSetFilter() {
+    const date = this.filterForm.controls['date'].value;
+    const state = this.filterForm.controls['state'].value;
+    const city = this.filterForm.controls['city'].value;
+    const place = this.filterForm.controls['place'].value;
 
+    if (date != '')
+      this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.date == date);
+    if (state != this.labelStateFilter)
+      this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.state == state);
+    if (city != this.labelCityFilter)
+      this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.city == city);
+    if (place != this.labelPlaceFilter)
+      this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.place == place);
+  }
+
+  onResetFilter() {
+    this.shownVaccinations = this.vaccinations;
   }
 }

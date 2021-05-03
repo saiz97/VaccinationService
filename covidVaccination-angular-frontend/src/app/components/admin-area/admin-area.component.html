@@ -1,30 +1,38 @@
 <div class="container">
     <div class="left-panel">
       <h1>Impftermine verwalten</h1>
-      <div class="filter-container">
+      <form [formGroup]="filterForm" class="filter-container" (submit)="onSetFilter()">
         <div class="filter-options">
-          <select class="ui dropdown" (change)="onStateChange($event.target.value)">
+          <select class="ui dropdown" formControlName="state">
+            <option>{{labelStateFilter}}</option>
             <option [value]="state" *ngFor="let state of states">{{state}}</option>
           </select>
 
-          <select class="ui dropdown" [disabled]="!filteredCities" (change)="onCityChange($event.target.value)">
-            <option [value]="city.key" *ngFor="let city of filteredCities | keyvalue">{{city.key}}</option>
+          <select class="ui dropdown" formControlName="city">
+            <option>{{labelCityFilter}}</option>
+            <option [value]="city.key" *ngFor="let city of cities | keyvalue">{{city.key}}</option>
           </select>
 
-          <select class="ui dropdown" [disabled]="!filteredPlaces">
-            <option [value]="place.key" *ngFor="let place of filteredPlaces | keyvalue">{{place.key}}</option>
+          <select class="ui dropdown" formControlName="place">
+            <option>{{labelPlaceFilter}}</option>
+            <option [value]="place.key" *ngFor="let place of places | keyvalue">{{place.key}}</option>
           </select>
 
           <div class="ui input">
-            <input type="date">
+            <input type="date" formControlName="date">
           </div>
         </div>
 
-        <button class="ui secondary labeled icon button" (click)="onSetFilter()">
-          <i class="filter icon"></i>
-          Filter setzen
-        </button>
-      </div>
+        <div class="btn-group">
+          <button class="ui secondary labeled icon button" type="submit">
+            <i class="filter icon"></i>
+            Filter setzen
+          </button>
+          <button class="ui secondary button reset" type="reset" (click)="onResetFilter()">
+            <i class="redo icon"></i>
+          </button>
+        </div>
+      </form>
 
       <button class="ui secondary labeled icon button add-btn" routerLink="termin/new">
         <i class="plus icon"></i>
@@ -34,7 +42,7 @@
     <div class="right-panel">
 
       <div class="ui middle aligned divided list" *ngIf="vaccinations">
-        <div class="item" *ngFor="let vaccination of vaccinations">
+        <div class="item" *ngFor="let vaccination of shownVaccinations">
           <div class="right floated content">
             <button class="ui icon button" routerLink="termin/{{vaccination.id}}"><i class="edit icon"></i></button>
             <button class="ui icon button" (click)="onDelete(vaccination.id)"><i class="trash icon"></i></button>
