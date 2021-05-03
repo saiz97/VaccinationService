@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminAreaComponent } from './components/admin-area/admin-area.component';
@@ -50,6 +52,10 @@ registerLocaleData(localeDEAT);
     ReactiveFormsModule
   ],
   providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
     {
       provide: LOCALE_ID,
       useValue: 'de-at'
