@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vaccination } from 'src/app/model/vaccination';
-import { VaccinationFactory } from 'src/app/model/vaccination-factory';
+import { ObjectFactory } from 'src/app/model/object-factory';
 import { DataStorageService } from 'src/app/service/data-storage.service';
 import { StepperService } from 'src/app/service/stepper.service';
 
@@ -26,7 +26,7 @@ export class AppointmentStepComponent implements OnInit {
         vaccinations.forEach(vac => {
           if (vac.city == this.stepperService.steps[2].data.city
               && vac.place == this.stepperService.steps[2].data.place) {
-            this.vaccinations.push(VaccinationFactory.fromObject(vac));
+            this.vaccinations.push(ObjectFactory.vaccinationFromObject(vac));
           }
         });
         console.log("All Vaccinations: ", this.vaccinations);
