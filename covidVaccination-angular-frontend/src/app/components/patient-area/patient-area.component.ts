@@ -34,19 +34,23 @@ export class PatientAreaComponent implements OnInit {
 
     if (this.authService.isLoggedIn()) {
       this.user = this.authService.getCurrentUser()
-      this.dataService.checkVaccinationStatus(this.user.id).subscribe((reservation) => {
-        this.isVaccinated = (reservation != null);
-
-        if (!this.isVaccinated) {
-          this.initStepperSub();
-        } else {
-          this.reservation = reservation;
-          this.clearStepContainer();
-        }
-      });
+      this.checkVaccinationStatus();
     } else {
       this.initStepperSub();
     }
+  }
+
+  checkVaccinationStatus() {
+    this.dataService.checkVaccinationStatus(this.user.id).subscribe((reservation) => {
+      this.isVaccinated = (reservation != null);
+
+      if (!this.isVaccinated) {
+        this.initStepperSub();
+      } else {
+        this.reservation = reservation;
+        this.clearStepContainer();
+      }
+    });
   }
 
   initStepperSub() {
@@ -76,5 +80,16 @@ export class PatientAreaComponent implements OnInit {
   clearStepContainer() {
     const viewContainerRef = this.stepHost.viewContainerRef;
     viewContainerRef.clear();
+  }
+
+  cancelOrder(reservation: Reservation) {
+    if (confirm("Reservierung wirklich stornieren?")) {
+      console.log("RESERVAION = ", reservation.id);
+      this.dataService.removeBookingOfUser(reservation.user_id).subscribe(() => {
+        console.log("Reservation wurde erfolgreich storniert.")
+        this.stepperService.currentStepIndex.next(1);
+        this.checkVaccinationStatus();
+      })
+    }
   }
 }

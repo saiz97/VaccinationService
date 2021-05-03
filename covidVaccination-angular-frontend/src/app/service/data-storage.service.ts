@@ -47,6 +47,11 @@ export class DataStorageService {
                 .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  removeBookingOfUser(userId: number): Observable<any> {
+    return this.http.delete(`${this.BASE_URL}/reservation/user/${userId}`)
+                .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   createVaccination(vaccination: Vaccination): Observable<any> {
     return this.http.post(`${this.BASE_URL}/vaccination`, vaccination)
                 .pipe(retry(3)).pipe(catchError(this.errorHandler));

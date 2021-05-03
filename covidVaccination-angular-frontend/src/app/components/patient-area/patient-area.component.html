@@ -19,4 +19,5 @@
 <ng-template #userIsVaccinated>
   <h1>Bereits eine Buchung vorhanden!</h1>
   <h3>Ihre Impfung findet am {{ reservation.vaccinationDate }} um {{ reservation.selectedSlotLabel }} statt.</h3>
+  <button class="ui button secondary" type="button" (click)="cancelOrder(reservation)">Reservierung stornieren.</button>
 </ng-template>
