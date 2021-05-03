@@ -55,18 +55,24 @@ export class PatientAreaComponent implements OnInit {
 
   initStepperSub() {
     this.stepperSubscription = this.stepperService.currentStepIndex.subscribe((index) => {
+      console.log("Incoming Step: ", index);
+      
       if (index < 5) {
         this.currentStep = this.stepperService.steps[index];
-        console.log("Current Step: ", this.currentStep, this.stepHost);
         this.initStep();
         this.isFinished = false;
+      } else if (index == 6) {
+        this.isFinished = true;
+        this.isVaccinated = true;
+        this.reservation = this.stepperService.steps[6].data;
+        this.clearStepContainer();
       } else {
         this.isFinished = true;
         this.clearStepContainer();
 
         setTimeout(() => {
           this.checkVaccinationStatus();
-        }, 5000);
+        }, 3000);
       }
     });
   }

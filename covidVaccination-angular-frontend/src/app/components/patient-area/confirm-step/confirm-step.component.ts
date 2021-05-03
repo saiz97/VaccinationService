@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, Response } from 'src/app/auth/auth-service.service';
+import { AuthService } from 'src/app/auth/auth-service.service';
 import { User } from 'src/app/model/user';
 import { Vaccination } from 'src/app/model/vaccination';
 import { DataStorageService } from 'src/app/service/data-storage.service';
@@ -30,6 +30,12 @@ export class ConfirmStepComponent implements OnInit {
       if (this.user) {
         this.dataService.checkVaccinationStatus(this.user.id).subscribe((reservation) => {
           this.isVaccinated = (reservation != null);
+
+          if(this.isVaccinated) {
+            setTimeout(() => {
+              this.stepperService.currentStepIndex.next(6);
+            }, 3000)
+          }
         })
       }
     }
@@ -46,17 +52,20 @@ export class ConfirmStepComponent implements OnInit {
     this.user = user;
     this.dataService.checkVaccinationStatus(this.user.id).subscribe((reservation) => {
       this.isVaccinated = (reservation != null);
+
+      if(this.isVaccinated) {
+        this.stepperService.steps[6].data = reservation;
+        setTimeout(() => {
+          this.stepperService.currentStepIndex.next(6);
+        }, 3000)
+      }
     })
   }
 
   confirmBooking() {
     if(confirm("Buchung wirklich abschließen?")) {
       this.dataService.saveBookingOfUser(this.user.id, this.vaccination.id, this.selectedSlotIndex).subscribe((res) => {
-        if (res) {
-          this.stepperService.currentStepIndex.next(5);
-        } else {
-          // error
-        }
+        this.stepperService.currentStepIndex.next(5);
       })
     }
   }

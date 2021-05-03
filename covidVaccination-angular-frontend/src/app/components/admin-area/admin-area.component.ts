@@ -51,6 +51,10 @@ export class AdminAreaComponent implements OnInit {
     })
   }
 
+  isInPast(vacDate) {
+    return ((new Date()).setHours(0,0,0,0) <= (new Date(vacDate)).setHours(0,0,0,0));
+  }
+
   onDelete(vacId: number) {
     if(confirm("Impftermin wirklich löschen?")) {
       this.dataService.deleteVaccination(vacId).subscribe((res) => {
@@ -67,14 +71,28 @@ export class AdminAreaComponent implements OnInit {
     const city = this.filterForm.controls['city'].value;
     const place = this.filterForm.controls['place'].value;
 
-    if (date != '')
-      this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.date == date);
-    if (state != this.labelStateFilter)
+    if (date != '') {
+      this.shownVaccinations = this.shownVaccinations.filter((vac) =>  date === vac.date);
+    }
+    if (state != this.labelStateFilter) {
       this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.state == state);
-    if (city != this.labelCityFilter)
+    }
+    if (city != this.labelCityFilter) {
       this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.city == city);
-    if (place != this.labelPlaceFilter)
+    }
+    if (place != this.labelPlaceFilter) {
       this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.place == place);
+    }
+  }
+
+  showAllCurrent(target) {
+    if (!target.classList.contains('checked')) {
+      target.classList.add('checked');
+      this.shownVaccinations = this.shownVaccinations.filter((vac) => this.isInPast(vac.date));
+    } else {
+      target.classList.remove('checked');
+      this.onResetFilter();
+    }
   }
 
   onResetFilter() {

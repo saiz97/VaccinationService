@@ -3,7 +3,7 @@
     <h3>Schritt 4: Einloggen um mit der Buchung fortzufahren</h3>
     <h4>Melden Sie sich mit einem vorhandenen Konto an.</h4>
   </div>
-  <app-login-form (user)="user = $event" showHeadline="false" btnLabel="Einloggen und fortfahren"></app-login-form>
+  <app-login-form (user)="onUserEmit($event)" showHeadline="false" btnLabel="Einloggen und fortfahren"></app-login-form>
 </div>
 
 <ng-template #userExists>

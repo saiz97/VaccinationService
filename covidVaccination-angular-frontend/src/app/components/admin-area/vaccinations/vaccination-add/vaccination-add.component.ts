@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Vaccination } from 'src/app/model/vaccination';
 import { ObjectFactory } from 'src/app/model/object-factory';
 import { DataStorageService } from 'src/app/service/data-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vaccination-add',
@@ -27,7 +28,8 @@ export class VaccinationAddComponent implements OnInit {
   amountOfTimeSlots: number = 0;
 
   constructor(private formBuilder: FormBuilder,
-              private dataService: DataStorageService) { }
+              private dataService: DataStorageService,
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -108,18 +110,20 @@ export class VaccinationAddComponent implements OnInit {
   }
 
   saveVaccination() {
-    this.vaccination.date = new Date(this.addForm.controls['date'].value);
-    this.vaccination.fromTime = this.addForm.controls['fromTime'].value + ":00";
-    this.vaccination.toTime = this.addForm.controls['toTime'].value + ":00";
-    this.vaccination.slotSizeInMinutes = this.addForm.controls['slotSize'].value;
-    this.vaccination.totalAttendeesPerSlot = this.addForm.controls['attendees'].value;
-    this.vaccination.availableSlots = this.amountOfTimeSlots;
+    if (confirm("Impftermin wirklich anlegen?")) {
+      this.vaccination.date = new Date(this.addForm.controls['date'].value);
+      this.vaccination.fromTime = this.addForm.controls['fromTime'].value + ":00";
+      this.vaccination.toTime = this.addForm.controls['toTime'].value + ":00";
+      this.vaccination.slotSizeInMinutes = this.addForm.controls['slotSize'].value;
+      this.vaccination.totalAttendeesPerSlot = this.addForm.controls['attendees'].value;
+      this.vaccination.availableSlots = this.amountOfTimeSlots;
 
-    let loc = this.locations.filter((loc) => (loc.place === this.addForm.controls['place'].value));
-    this.vaccination.vaccination_location_id = (loc.length > 0) ? loc[0].id : null;
+      let loc = this.locations.filter((loc) => (loc.place === this.addForm.controls['place'].value));
+      this.vaccination.vaccination_location_id = (loc.length > 0) ? loc[0].id : null;
 
-    this.dataService.createVaccination(this.vaccination).subscribe((res) => {
-      console.log("CREATED!", res);
-    })
+      this.dataService.createVaccination(this.vaccination).subscribe((res) => {
+        this.router.navigate(['verwalten']);
+      })
+    }
   }
 }

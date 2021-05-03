@@ -34,6 +34,11 @@
         </div>
       </form>
 
+      <div class="ui checkbox cb-date-toggle">
+        <input type="checkbox" (click)="showAllCurrent($event.target)">
+        <label>Alle ab heute anzeigen.</label>
+      </div>
+
       <button class="ui secondary labeled icon button add-btn" routerLink="termin/new">
         <i class="plus icon"></i>
         Impftermin hinzufügen
@@ -43,7 +48,7 @@
 
       <div class="ui middle aligned divided list" *ngIf="vaccinations">
         <div class="item" *ngFor="let vaccination of shownVaccinations">
-          <div class="right floated content">
+          <div class="right floated content" *ngIf="isInPast(vaccination.date)">
             <button class="ui icon button" routerLink="termin/{{vaccination.id}}"><i class="edit icon"></i></button>
             <button class="ui icon button" (click)="onDelete(vaccination.id)"><i class="trash icon"></i></button>
           </div>

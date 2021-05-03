@@ -1,5 +1,5 @@
 import { Injectable, Type } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { AppointmentStepComponent } from '../components/patient-area/appointment-step/appointment-step.component';
 import { ConfirmStepComponent } from '../components/patient-area/confirm-step/confirm-step.component';
 import { LocationStepComponent } from '../components/patient-area/location-step/location-step.component';
@@ -18,7 +18,8 @@ export class StepperService {
      2: { component: LocationStepComponent, visited: false },
      3: { component: AppointmentStepComponent, visited: false },
      4: { component: ConfirmStepComponent, visited: false },
-     5: { component: null, visited: false }
+     5: { component: null, visited: false },
+     6: { component: null, visited: false },
   };
 
   currentStepIndex = new BehaviorSubject<number>(1);
