@@ -13,11 +13,13 @@
   <ng-container *ngIf="!isVaccinated; else userIsVaccinated">
     <h1>Vielen Dank für Ihre Buchung.</h1>
     <h3>Sie tragen dazu bei Österreich wieder gesund zu machen!</h3>
+
+    <p>Sie werden in wenigen Augenblicken weitergeleitet...</p>
   </ng-container>
 </ng-template>
 
 <ng-template #userIsVaccinated>
-  <h1>Bereits eine Buchung vorhanden!</h1>
-  <h3>Ihre Impfung findet am {{ reservation.vaccinationDate }} um {{ reservation.selectedSlotLabel }} statt.</h3>
+  <h1>Persönlicher Impfplan</h1>
+  <h3>Ihre Impfung findet am {{ reservation.vaccinationDate | date:'longDate' }} um {{ reservation.selectedSlotLabel }} statt.</h3>
   <button class="ui button secondary" type="button" (click)="cancelOrder(reservation)">Reservierung stornieren.</button>
 </ng-template>

@@ -1,26 +1,26 @@
 <div class="ui tablet stackable steps">
-  <div class="step" [class.disabled]="steps[1] == false">
+  <div class="step" (click)="stepperService.currentStepIndex.next(1)" [class.disabled]="currentStep < 1">
     <i class="map marker alternate icon"></i>
     <div class="content">
       <div class="title">Schritt 1</div>
       <div class="description">Bundesland wählen</div>
     </div>
   </div>
-  <div class="step" [class.disabled]="steps[2] == false">
+  <div class="step" (click)="stepperService.currentStepIndex.next(2)" [class.disabled]="currentStep < 2">
     <i class="thumbtack icon"></i>
     <div class="content">
       <div class="title">Schritt 2</div>
       <div class="description">Standort wählen</div>
     </div>
   </div>
-  <div class="step" [class.disabled]="steps[3] == false">
+  <div class="step" (click)="stepperService.currentStepIndex.next(3)" [class.disabled]="currentStep < 3">
     <i class="calendar alternate icon"></i>
     <div class="content">
       <div class="title">Schritt 3</div>
       <div class="description">Impftermin buchen</div>
     </div>
   </div>
-  <div class="step" [class.disabled]="steps[4] == false">
+  <div class="step" (click)="stepperService.currentStepIndex.next(4)" [class.disabled]="currentStep < 4">
     <i class="check icon"></i>
     <div class="content">
       <div class="title">Schritt 4</div>

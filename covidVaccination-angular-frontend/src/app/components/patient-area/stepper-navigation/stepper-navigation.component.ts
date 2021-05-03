@@ -7,18 +7,15 @@ import { StepperService, Step } from 'src/app/service/stepper.service';
   styleUrls: ['./stepper-navigation.component.scss']
 })
 export class StepperNavigationComponent implements OnInit {
-  steps: {[key: number]: boolean} = {
-    1: false,
-    2: false,
-    3: false,
-    4: false
-  };
 
-  constructor(private stepperService: StepperService) { }
+  currentStep: number = 0;
+
+  constructor(public stepperService: StepperService) { }
 
   ngOnInit(): void {
     this.stepperService.currentStepIndex.subscribe((index) => {
-      this.steps[index] = true;
+      this.currentStep = index;
+      console.log("Current step", this.currentStep)
     });
   }
 

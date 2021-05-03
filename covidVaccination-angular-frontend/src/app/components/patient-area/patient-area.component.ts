@@ -63,6 +63,10 @@ export class PatientAreaComponent implements OnInit {
       } else {
         this.isFinished = true;
         this.clearStepContainer();
+
+        setTimeout(() => {
+          this.checkVaccinationStatus();
+        }, 5000);
       }
     });
   }

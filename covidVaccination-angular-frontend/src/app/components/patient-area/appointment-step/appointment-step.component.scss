@@ -1,3 +1,16 @@
 select option:disabled {
   color: rgb(255, 2, 2);
 }
+
+.right.floated.content {
+  display: flex;
+  gap: 1rem;
+
+  select {
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+  }
+}
