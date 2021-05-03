@@ -41,9 +41,17 @@ export class DataStorageService {
     return this.http.get(`${this.BASE_URL}/vaccinations`).pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  getVaccinationById(vacId: number): Observable<Vaccination> {
+    return this.http.get(`${this.BASE_URL}/vaccination/${vacId}`).pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  getReservationsByVaccination(vacId: number): Observable<Array<Vaccination>> {
+    return this.http.get(`${this.BASE_URL}/reservations/vaccination/${vacId}`).pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   saveBookingOfUser(userId: number, vacId: number, slot: number): Observable<any> {
     return this.http.post(`${this.BASE_URL}/reservation`,
-                { user_id: userId, vaccination_id: vacId, selectedSlot: slot } as Reservation)
+                { user_id: userId, vaccination_id: vacId, selectedSlot: slot })
                 .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
@@ -59,6 +67,16 @@ export class DataStorageService {
 
   deleteVaccination(vacId: number): Observable<any> {
     return this.http.delete(`${this.BASE_URL}/vaccination/${vacId}`)
+                .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  updateVaccination(vaccination): Observable<any> {
+    return this.http.put(`${this.BASE_URL}/vaccination/${vaccination.id}`, vaccination)
+                .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  updateUserVaccinationStatus(ssn: number, newVacStatus: boolean) {
+    return this.http.put(`${this.BASE_URL}/user/${ssn}`, {isVaccinated: newVacStatus})
                 .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 

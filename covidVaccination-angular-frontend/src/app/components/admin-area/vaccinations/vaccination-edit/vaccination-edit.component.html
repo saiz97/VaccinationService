@@ -1,1 +1,87 @@
-<p>vaccination-edit works!</p>
+<div class="container">
+    <div class="left-panel">
+      <form [formGroup]="editForm" class="ui large form" (submit)="saveVaccination()">
+        <div class="field">
+          <label for="fc_state">Bundesland:</label>
+          <input id="fc_state" [value]="stateName" class="ui input" disabled>
+        </div>
+
+        <div class="field">
+          <label for="fc_city">Stadt:</label>
+          <select id="fc_city" class="ui dropdown" [disabled]="!filteredCities" (change)="onCityChange($event.target.value)">
+            <option [value]="city.key" *ngFor="let city of filteredCities | keyvalue">{{city.key}}</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="fc_place">Austragungsort:</label>
+          <select id="fc_place" class="ui dropdown" formControlName="place">
+            <option [value]="place.key" *ngFor="let place of filteredPlaces | keyvalue">{{place.key}}</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="fc_date">Datum:</label>
+          <div class="ui input">
+            <input type="date" id="fc_date" formControlName="date" />
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="field">
+            <label for="fc_from">Startzeit:</label>
+            <div class="ui input">
+              <input type="time" id="fc_from" [value]="vaccination.fromTime" disabled/>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="fc_to">Endzeit:</label>
+            <div class="ui input">
+              <input type="time" id="fc_to" [value]="vaccination.toTime" disabled/>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fc_attendees">Patienten pro Zeitslot:</label>
+          <div class="ui input">
+            <input type="number" id="fc_attendees" formControlName="attendees" min="0"/>
+          </div>
+        </div>
+
+        <button class="ui icon button" routerLink="../../">Abbrechen</button>
+
+        <button type="submit" class="ui secondary button" [disabled]="editForm.invalid">Speichern</button>
+      </form>
+    </div>
+
+    <div class="middle-panel">
+      <h4>Zeitslot-Buchungs-Übersicht</h4>
+      <ul class="slot-demo">
+        <li *ngFor="let slot of vaccination.reservationSlots | keyvalue, let i = index">
+          <span>[Slot {{i}}]</span>
+          <span><b>{{slot.key}}</b> :</span>
+          <span>{{slot.value}} {{((+slot.value) == 1) ? 'Person' : 'Personen'}}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="right-panel" *ngIf="reservations">
+      <ul>
+        <li class="item" *ngFor="let res of reservations">
+            <div class="cb-container">
+              <label class="checkbox">
+                <input type="checkbox" [checked]="res.user.isVaccinated ? 'checked' : ''"
+                  (click)="vaccinatePerson(res.user)">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="content">
+              <h4>{{res.user.firstName + " " + res.user.lastName}}</h4>
+              <p>(Slot {{res.selectedSlot}}) {{res.selectedSlotLabel}}</p>
+            </div>
+        </li>
+      </ul>
+    </div>
+</div>
