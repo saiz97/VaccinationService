@@ -18,7 +18,6 @@ class VaccinationController extends Controller
         if (isset($request['date'])) {
             $date = new \DateTime($request->date);
             $request['date'] = $date;
-            // $request['date'] = Carbon::createFromFormat('Y-m-d', $request->date, "Europe/Vienna");
         }
 
         if (isset($request['fromTime'])) {
@@ -120,7 +119,7 @@ class VaccinationController extends Controller
     }
 
     public function getAllVaccinations() {
-        $vacs = Vaccination::with(['reservations'])->get();
+        $vacs = Vaccination::with(['reservations'])->orderBy('date', 'ASC')->get();
         foreach ($vacs as $vac) {
             $vac = $this->modifyVaccinationAddTimeSlotArray($vac);
 
@@ -170,6 +169,7 @@ class VaccinationController extends Controller
             ->join('vaccination_locations', 'vaccinations.vaccination_location_id', '=', 'vaccination_locations.id')
             ->join('states', 'vaccination_locations.state_id', '=', 'states.id')
             ->where('states.state', $state)
+            ->orderBy('date', 'ASC')
             ->get();
 
         $return = [];
