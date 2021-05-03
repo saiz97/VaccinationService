@@ -17,7 +17,7 @@
 
     <div class="field">
       <label for="fc_place">Austragungsort:</label>
-      <select id="fc_place" class="ui dropdown" [disabled]="!filteredPlaces" formControlName="place">
+      <select id="fc_place" class="ui dropdown" formControlName="place">
         <option [value]="place.key" *ngFor="let place of filteredPlaces | keyvalue">{{place.key}}</option>
       </select>
     </div>

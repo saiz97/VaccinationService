@@ -1,9 +1,7 @@
-import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Vaccination } from 'src/app/model/vaccination';
-import { VaccinationFactory } from 'src/app/model/vaccination-factory';
+import { ObjectFactory } from 'src/app/model/object-factory';
 import { DataStorageService } from 'src/app/service/data-storage.service';
 
 @Component({
@@ -14,7 +12,7 @@ import { DataStorageService } from 'src/app/service/data-storage.service';
 export class VaccinationAddComponent implements OnInit {
 
   addForm: FormGroup;
-  vaccination: Vaccination = VaccinationFactory.empty();
+  vaccination: Vaccination = ObjectFactory.empty();
   errors: { [key: string]: string } = {};
 
   locations;
@@ -29,8 +27,6 @@ export class VaccinationAddComponent implements OnInit {
   amountOfTimeSlots: number = 0;
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router,
-              private route: ActivatedRoute,
               private dataService: DataStorageService) { }
 
   ngOnInit(): void {
@@ -49,8 +45,9 @@ export class VaccinationAddComponent implements OnInit {
       this.addForm.controls['place'].setValue([...this.filteredPlaces][0][0]);
     });
 
+    let placeFC = this.formBuilder.control({disabled: !this.filteredPlaces}, Validators.required);
     this.addForm = this.formBuilder.group({
-      place: [Validators.required],
+      place: placeFC,
       date: ['', Validators.required],
       fromTime: ['10:00', Validators.required],
       toTime: ['18:00', Validators.required],
