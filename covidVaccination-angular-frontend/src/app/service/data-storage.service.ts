@@ -51,7 +51,7 @@ export class DataStorageService {
 
   saveBookingOfUser(userId: number, vacId: number, slot: number): Observable<any> {
     return this.http.post(`${this.BASE_URL}/reservation`,
-                { user_id: userId, vaccination_id: vacId, selectedSlot: slot })
+                { user_id: userId, vaccination_id: vacId, selectedSlot: slot + 1 })
                 .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 

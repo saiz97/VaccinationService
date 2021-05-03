@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from '../model/user';
+import { StepperService } from '../service/stepper.service';
 
 export interface Response {
   access_token: string;
@@ -28,7 +29,7 @@ interface Token {
 export class AuthService {
   private BASE_URL: string = "http://covidvaccination.s1810456031.student.kwmhgb.at/api/auth";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private stepperService: StepperService) { }
 
   login (email: string, password: string): Observable<Response> {
     return this.http.post(`${this.BASE_URL}/login`, {
@@ -60,6 +61,7 @@ export class AuthService {
     this.http.post(`${this.BASE_URL}/logout`, {});
     sessionStorage.removeItem("token");
     console.log("logged out");
+    this.stepperService.currentStepIndex.next(1);
   }
 
   isAdmin() {

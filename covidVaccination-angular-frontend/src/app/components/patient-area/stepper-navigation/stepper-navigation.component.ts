@@ -15,7 +15,6 @@ export class StepperNavigationComponent implements OnInit {
   ngOnInit(): void {
     this.stepperService.currentStepIndex.subscribe((index) => {
       this.currentStep = index;
-      console.log("Current step", this.currentStep)
     });
   }
 

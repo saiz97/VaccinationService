@@ -97,7 +97,7 @@ class ReservationController extends Controller
         if ($reservation) {
             $vac = VaccinationController::modifyVaccinationAddTimeSlotArray($reservation->vaccination);
             $reservation["vaccinationDate"] = $vac->date;
-            $reservation["selectedSlotLabel"] = array_keys($vac->reservationSlots)[$reservation->selectedSlot];
+            $reservation["selectedSlotLabel"] = array_keys($vac->reservationSlots)[$reservation->selectedSlot-1]; // Slots index starting with 1 -> array_key with 0!
         }
 
         unset($reservation->created_at);

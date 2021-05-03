@@ -60,7 +60,7 @@
       <h4>Zeitslot-Buchungs-Übersicht</h4>
       <ul class="slot-demo">
         <li *ngFor="let slot of vaccination.reservationSlots | keyvalue, let i = index">
-          <span>[Slot {{i}}]</span>
+          <span>[Slot {{i+1}}]</span>
           <span><b>{{slot.key}}</b> :</span>
           <span>{{slot.value}} {{((+slot.value) == 1) ? 'Person' : 'Personen'}}</span>
         </li>

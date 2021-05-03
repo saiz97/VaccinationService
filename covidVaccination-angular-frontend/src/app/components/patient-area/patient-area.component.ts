@@ -56,7 +56,7 @@ export class PatientAreaComponent implements OnInit {
   initStepperSub() {
     this.stepperSubscription = this.stepperService.currentStepIndex.subscribe((index) => {
       console.log("Incoming Step: ", index);
-      
+
       if (index < 5) {
         this.currentStep = this.stepperService.steps[index];
         this.initStep();
@@ -94,7 +94,6 @@ export class PatientAreaComponent implements OnInit {
 
   cancelOrder(reservation: Reservation) {
     if (confirm("Reservierung wirklich stornieren?")) {
-      console.log("RESERVAION = ", reservation.id);
       this.dataService.removeBookingOfUser(reservation.user_id).subscribe(() => {
         console.log("Reservation wurde erfolgreich storniert.")
         this.stepperService.currentStepIndex.next(1);
