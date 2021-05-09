@@ -21,7 +21,7 @@ import { VaccinationAddComponent } from './components/admin-area/vaccinations/va
 import { DataStorageService } from "./service/data-storage.service";
 import { StepperService } from "./service/stepper.service";
 import { StepDirective } from './service/stepper.directive';
-import { AuthService } from './auth/auth-service.service';
+import { AuthService } from './auth/auth.service';
 
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';

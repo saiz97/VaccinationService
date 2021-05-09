@@ -1,6 +1,6 @@
 import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/auth/auth-service.service';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Reservation } from 'src/app/model/reservation';
 import { User } from 'src/app/model/user';
 import { DataStorageService } from 'src/app/service/data-storage.service';
