@@ -1,6 +1,6 @@
 <div class="ui container">
 
-  <form [formGroup]="addForm" class="ui large form" (submit)="saveVaccination()">
+  <form [formGroup]="addForm" class="ui large form" (submit)="openModal('confirm-modal')">
     <div class="field">
       <label for="fc_state">Bundesland:</label>
       <select id="fc_state" class="ui dropdown" (change)="onStateChange($event.target.value)">
@@ -83,3 +83,9 @@
 
 
 </div>
+
+<jw-modal id="confirm-modal">
+  <h1>Impftermin wirklich anlegen?</h1>
+  <button class="ui button" (click)="closeModal('confirm-modal');">Nein</button>
+  <button class="ui button secondary" (click)="saveVaccination('confirm-modal')">Impftermin anlegen</button>
+</jw-modal>

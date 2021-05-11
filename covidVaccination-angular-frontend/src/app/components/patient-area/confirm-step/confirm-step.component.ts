@@ -4,6 +4,7 @@ import { User } from 'src/app/model/user';
 import { Vaccination } from 'src/app/model/vaccination';
 import { DataStorageService } from 'src/app/service/data-storage.service';
 import { StepperService } from 'src/app/service/stepper.service';
+import { ModalService } from 'src/app/shared/popup-modal/modal.service';
 
 @Component({
   selector: 'app-confirm-step',
@@ -20,7 +21,8 @@ export class ConfirmStepComponent implements OnInit {
 
   constructor(private stepperService: StepperService,
               private dataService: DataStorageService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private modalService: ModalService) { }
 
   ngOnInit(): void {
     console.log("Confirm Step!", this.stepperService.steps);
@@ -62,11 +64,18 @@ export class ConfirmStepComponent implements OnInit {
     })
   }
 
-  confirmBooking() {
-    if(confirm("Buchung wirklich abschließen?")) {
-      this.dataService.saveBookingOfUser(this.user.id, this.vaccination.id, this.selectedSlotIndex).subscribe((res) => {
-        this.stepperService.currentStepIndex.next(5);
-      })
-    }
+  confirmBooking(modalId: string) {
+    this.closeModal(modalId);
+    this.dataService.saveBookingOfUser(this.user.id, this.vaccination.id, this.selectedSlotIndex).subscribe((res) => {
+      this.stepperService.currentStepIndex.next(5);
+    })
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }

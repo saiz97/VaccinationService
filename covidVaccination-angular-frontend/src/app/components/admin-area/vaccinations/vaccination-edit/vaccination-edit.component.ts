@@ -6,6 +6,7 @@ import { ObjectFactory } from 'src/app/model/object-factory';
 import { DataStorageService } from 'src/app/service/data-storage.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
+import { ModalService } from 'src/app/shared/popup-modal/modal.service';
 
 @Component({
   selector: 'app-vaccination-edit',
@@ -30,7 +31,8 @@ export class VaccinationEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: DataStorageService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private modalService: ModalService) { }
 
   ngOnInit(): void {
     const vacId = this.route.snapshot.params['id'];
@@ -90,7 +92,7 @@ export class VaccinationEditComponent implements OnInit {
     });
   }
 
-  saveVaccination() {
+  saveVaccination(modalId: string, okModalId: string) {
     let update = {
       id: this.vaccination.id,
       date: this.editForm.controls['date'].value,
@@ -98,9 +100,17 @@ export class VaccinationEditComponent implements OnInit {
       vaccination_location_id: this.locations.find((loc) => loc.place === this.editForm.controls['place'].value).id,
     };
 
-    if (confirm("Änderungen wirklich speichern?\nDies würde aktuelle Informationen zu diesem Termin überschreiben."))
     this.dataService.updateVaccination(update).subscribe(() => {
-      alert("Änderungen wurden gespeichert.");
+      this.openModal(okModalId);
     });
+    this.closeModal(modalId);
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }

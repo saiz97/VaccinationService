@@ -42,8 +42,14 @@
       </tbody>
     </table>
 
-    <button class="ui btn button secondary" type="button" (click)="confirmBooking()">Buchung bestätigen und abschließen</button>
+    <button class="ui btn button secondary" type="button" (click)="openModal('confirm-modal')">Buchung bestätigen und abschließen</button>
   </div>
+
+  <jw-modal id="confirm-modal">
+    <h1>Wollen Sie die Buchung hiermit bestätigen und die Buchung abschließen?</h1>
+    <button class="ui button" (click)="closeModal('confirm-modal');">Abbrechen</button>
+    <button class="ui button secondary" (click)="confirmBooking('confirm-modal');">Buchung abschließen</button>
+  </jw-modal>
 
   <ng-template #userIsVaccinated>
     <div class="intro">

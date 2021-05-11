@@ -21,5 +21,12 @@
 <ng-template #userIsVaccinated>
   <h1>Persönlicher Impfplan</h1>
   <h3>Ihre Impfung findet am {{ reservation.vaccinationDate | date:'longDate' }} um {{ reservation.selectedSlotLabel }} statt.</h3>
-  <button class="ui button secondary" type="button" (click)="cancelOrder(reservation)">Reservierung stornieren.</button>
+  <button class="ui button secondary" type="button" (click)="openModal('cancel-modal')">Reservierung stornieren.</button>
+
+  <jw-modal id="cancel-modal">
+    <h1>Wollen Sie Ihre Reservierung wirklich stornieren?</h1>
+    <p>Eine Stornierung kann nicht widerrufen werden. Um einen weiteren Termin zu erhalten, muss ein neuer Impftermin gebucht werden.</p>
+    <button class="ui button" (click)="closeModal('cancel-modal')">Abbrechen</button>
+    <button class="ui button secondary" (click)="cancelOrder('cancel-modal', reservation)">Reservierung stornieren</button>
+  </jw-modal>
 </ng-template>

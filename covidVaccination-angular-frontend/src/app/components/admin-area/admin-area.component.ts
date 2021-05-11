@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Vaccination } from 'src/app/model/vaccination';
 import { DataStorageService } from 'src/app/service/data-storage.service';
+import { ModalService } from 'src/app/shared/popup-modal/modal.service';
 
 @Component({
   selector: 'app-admin-area',
@@ -23,7 +24,9 @@ export class AdminAreaComponent implements OnInit {
   vaccinations: Vaccination[] = [];
   shownVaccinations: Vaccination[] = [];
 
-  constructor(private dataService: DataStorageService, private formBuilder: FormBuilder) { }
+  vaccinationIdOnDelete: number = null;
+
+  constructor(private dataService: DataStorageService, private formBuilder: FormBuilder, private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.dataService.getAllLocations().subscribe((locations) => {
@@ -55,14 +58,24 @@ export class AdminAreaComponent implements OnInit {
     return ((new Date()).setHours(0,0,0,0) <= (new Date(vacDate)).setHours(0,0,0,0));
   }
 
-  onDelete(vacId: number) {
-    if(confirm("Impftermin wirklich löschen?")) {
-      this.dataService.deleteVaccination(vacId).subscribe((res) => {
-        this.vaccinations = this.vaccinations.filter(function( vac ) {
-          return vac.id !== vacId;
-        });
+  onDelete(modalId: string) {
+    this.dataService.deleteVaccination(this.vaccinationIdOnDelete).subscribe((res) => {
+      this.vaccinations = this.vaccinations.filter((vac) => {
+        return vac.id !== this.vaccinationIdOnDelete;
       });
-    }
+      this.shownVaccinations = this.vaccinations;
+      this.closeModal(modalId);
+    });
+  }
+
+  openModal(id: string, vacId: number) {
+    this.modalService.open(id);
+    this.vaccinationIdOnDelete = vacId;
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+    this.vaccinationIdOnDelete = null;
   }
 
   onSetFilter() {

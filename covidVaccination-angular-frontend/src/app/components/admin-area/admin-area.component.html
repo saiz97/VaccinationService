@@ -50,7 +50,7 @@
         <div class="item" *ngFor="let vaccination of shownVaccinations">
           <div class="right floated content" *ngIf="isInPast(vaccination.date)">
             <button class="ui icon button" routerLink="termin/{{vaccination.id}}"><i class="edit icon"></i></button>
-            <button class="ui icon button" (click)="onDelete(vaccination.id)"><i class="trash icon"></i></button>
+            <button class="ui icon button" (click)="openModal('delete-modal', vaccination.id)"><i class="trash icon"></i></button>
           </div>
           <i class="large syringe icon"></i>
 
@@ -66,4 +66,9 @@
     </div>
 
   </div>
+  <jw-modal id="delete-modal">
+    <h1>Wollen Sie den Impftermin wirklich löschen?</h1>
+    <button class="ui button" (click)="closeModal('delete-modal');">Nein</button>
+    <button class="ui button secondary" (click)="onDelete('delete-modal')">Impftermin löschen</button>
+  </jw-modal>
 

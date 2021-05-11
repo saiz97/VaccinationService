@@ -6,6 +6,7 @@ import { User } from 'src/app/model/user';
 import { DataStorageService } from 'src/app/service/data-storage.service';
 import { StepDirective } from 'src/app/service/stepper.directive';
 import { StepperService, Step } from 'src/app/service/stepper.service';
+import { ModalService } from 'src/app/shared/popup-modal/modal.service';
 
 @Component({
   selector: 'app-patient-area',
@@ -28,7 +29,7 @@ export class PatientAreaComponent implements OnInit {
   constructor(private stepperService: StepperService,
               private authService: AuthService,
               private dataService: DataStorageService,
-              private componentFactoryResolver: ComponentFactoryResolver) { }
+              private componentFactoryResolver: ComponentFactoryResolver, private modalService: ModalService) { }
 
   ngOnInit(): void {
 
@@ -92,13 +93,20 @@ export class PatientAreaComponent implements OnInit {
     viewContainerRef.clear();
   }
 
-  cancelOrder(reservation: Reservation) {
-    if (confirm("Reservierung wirklich stornieren?")) {
-      this.dataService.removeBookingOfUser(reservation.user_id).subscribe(() => {
-        console.log("Reservation wurde erfolgreich storniert.")
-        this.stepperService.currentStepIndex.next(1);
-        this.checkVaccinationStatus();
-      })
-    }
+  cancelOrder(modalId: string, reservation: Reservation) {
+    this.closeModal(modalId);
+    this.dataService.removeBookingOfUser(reservation.user_id).subscribe(() => {
+      console.log("Reservation wurde erfolgreich storniert.")
+      this.stepperService.currentStepIndex.next(1);
+      this.checkVaccinationStatus();
+    })
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }
