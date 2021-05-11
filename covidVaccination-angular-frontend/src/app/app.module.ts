@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -27,6 +28,7 @@ import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeDEAT from '@angular/common/locales/de-AT';
 import { TokenInterceptor } from './auth/token.interceptor';
+import { PopupModalComponent } from './shared/popup-modal/popup-modal.component';
 registerLocaleData(localeDEAT);
 
 @NgModule({
@@ -42,14 +44,16 @@ registerLocaleData(localeDEAT);
     ConfirmStepComponent,
     VaccinationEditComponent,
     VaccinationAddComponent,
-    StepDirective
+    StepDirective,
+    PopupModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [
     {
