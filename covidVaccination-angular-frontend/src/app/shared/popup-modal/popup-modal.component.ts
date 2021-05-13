@@ -16,7 +16,6 @@ export class PopupModalComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log("HELLO ME MODAL!")
         // ensure id attribute exists
         if (!this.id) {
             console.error('modal must have an id');

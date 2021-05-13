@@ -1,7 +1,7 @@
 <div class="container">
     <div class="left-panel">
       <h1>Impftermine verwalten</h1>
-      <form [formGroup]="filterForm" class="filter-container" (submit)="onSetFilter()">
+      <form [formGroup]="filterForm" class="ui form filter-container" (submit)="onSetFilter()">
         <div class="filter-options">
           <select class="ui dropdown" formControlName="state">
             <option>{{labelStateFilter}}</option>
@@ -18,9 +18,22 @@
             <option [value]="place.key" *ngFor="let place of places | keyvalue">{{place.key}}</option>
           </select>
 
-          <div class="ui input">
-            <input type="date" formControlName="date">
+          <div class="two fields">
+            <div class="field">
+              <label>von:</label>
+              <div class="ui input">
+                <input type="date" formControlName="from">
+              </div>
+            </div>
+            <div class="field">
+              <label>bis:</label>
+              <div class="ui input field">
+                <input type="date" formControlName="to">
+              </div>
+            </div>
           </div>
+
+
         </div>
 
         <div class="btn-group">
@@ -28,7 +41,7 @@
             <i class="filter icon"></i>
             Filter setzen
           </button>
-          <button class="ui secondary button reset" type="reset" (click)="onResetFilter()">
+          <button class="ui secondary button reset" type="button" (click)="onResetFilter()">
             <i class="redo icon"></i>
           </button>
         </div>

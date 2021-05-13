@@ -50,7 +50,8 @@ export class AdminAreaComponent implements OnInit {
       state: this.labelStateFilter,
       city: this.labelCityFilter,
       place: this.labelPlaceFilter,
-      date: ''
+      from: '',
+      to: ''
     })
   }
 
@@ -79,13 +80,17 @@ export class AdminAreaComponent implements OnInit {
   }
 
   onSetFilter() {
-    const date = this.filterForm.controls['date'].value;
+    const from = this.filterForm.controls['from'].value;
+    const to = this.filterForm.controls['to'].value;
     const state = this.filterForm.controls['state'].value;
     const city = this.filterForm.controls['city'].value;
     const place = this.filterForm.controls['place'].value;
 
-    if (date != '') {
-      this.shownVaccinations = this.shownVaccinations.filter((vac) =>  date === vac.date);
+    if (to != '') {
+      this.shownVaccinations = this.shownVaccinations.filter((vac) => vac.date <= to);
+    }
+    if (from != '') {
+      this.shownVaccinations = this.shownVaccinations.filter((vac) => vac.date >= from);
     }
     if (state != this.labelStateFilter) {
       this.shownVaccinations = this.shownVaccinations.filter((vac) =>  vac.state == state);
@@ -110,5 +115,6 @@ export class AdminAreaComponent implements OnInit {
 
   onResetFilter() {
     this.shownVaccinations = this.vaccinations;
+    this.initForm();
   }
 }
