@@ -123,19 +123,15 @@ class VaccinationController extends Controller
         foreach ($vacs as $vac) {
             $vac = $this->modifyVaccinationAddTimeSlotArray($vac);
 
-            $locController = new VaccinationLocationController();
-            $loc = $locController->findById($vac->vaccination_location_id);
-
-            $vac["state"] = $loc->state->state;
-            $vac["city"] = $loc->city;
-            $vac["place"] = $loc->place;
-            $vac["zipCode"] = $loc->zipCode;
+            $vac = $this->addLocationInfo($vac, $vac->vaccination_location_id);
         }
         return $vacs;
     }
 
     public function findById(string $id) {
-        return $this->modifyVaccinationAddTimeSlotArray(Vaccination::find($id));
+        $vac = $this->modifyVaccinationAddTimeSlotArray(Vaccination::find($id));
+        $vac = $this->addLocationInfo($vac, $vac->vaccination_location_id);
+        return $vac;
     }
 
     public static function modifyVaccinationAddTimeSlotArray($vac) {
@@ -176,10 +172,6 @@ class VaccinationController extends Controller
         foreach ($vacs as $vac) {
             $vac2 = $this->findById($vac->id);
             $vac2["state_id"] = $vac->state_id;
-            $vac2["city"] = $vac->city;
-            $vac2["zipCode"] = $vac->zipCode;
-            $vac2["place"] = $vac->place;
-            $vac2["state"] = $vac->state;
             $return[] = $vac2;
         }
         return $return;
@@ -192,5 +184,17 @@ class VaccinationController extends Controller
             ->select('vaccinations.id as VaccinationId', 'reservations.selectedSlot', 'users.firstName', 'users.lastName', 'users.email', 'users.isVaccinated')
             ->where('vaccinations.id', $id)
             ->get();
+    }
+
+    private function addLocationInfo($vac, $locId) {
+        $locController = new VaccinationLocationController();
+        $loc = $locController->findById($locId);
+
+        $vac["state"] = $loc->state->state;
+        $vac["city"] = $loc->city;
+        $vac["place"] = $loc->place;
+        $vac["zipCode"] = $loc->zipCode;
+
+        return $vac;
     }
 }

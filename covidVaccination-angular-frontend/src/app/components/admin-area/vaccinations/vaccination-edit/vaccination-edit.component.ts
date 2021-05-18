@@ -40,6 +40,7 @@ export class VaccinationEditComponent implements OnInit {
 
     this.dataService.getVaccinationById(vacId).subscribe((vaccination) => {
       this.vaccination = ObjectFactory.vaccinationFromObject(vaccination);
+      this.stateName = this.vaccination.state;
 
       this.initForm();
       this.editForm.controls['date'].setValue(this.vaccination.date);
@@ -47,14 +48,13 @@ export class VaccinationEditComponent implements OnInit {
       this.dataService.getAllLocations().subscribe((locations) => {
         this.locations = locations;
         locations.forEach((loc) => {
-          if (this.vaccination.vaccination_location_id === loc.id) this.stateName = loc.stateName;
           this.cities.set(loc.city, loc.stateName);
           this.places.set(loc.place, loc.city);
         });
 
-        this.filteredCities = new Map([...this.cities].filter(([k, v]) => v == this.stateName));
-        this.filteredPlaces = new Map([...this.places].filter(([k, v]) => v == [...this.filteredCities].reverse()[0][0]));
-        this.editForm.controls['place'].setValue([...this.filteredPlaces][0][0]);
+        this.filteredCities = new Map([...this.cities].filter(([k, v]) => v == this.vaccination.state));
+        this.filteredPlaces = new Map([...this.places].filter(([k, v]) => v == this.vaccination.city));
+        this.editForm.controls['place'].setValue(this.vaccination.place);
       });
     })
 
