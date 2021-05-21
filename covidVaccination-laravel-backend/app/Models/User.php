@@ -46,6 +46,10 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    public function isAdmin() {
+        return boolval($this->isAdmin);
+    }
+
     public function reservation() : HasOne {
         return $this->hasOne(Reservation::class);
     }

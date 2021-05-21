@@ -72,9 +72,9 @@ class UserController extends Controller
             ->first();
     }
 
-    public function isAdmin(int $ssn) : bool {
+    public function isAdmin(int $ssn) {
         $user = User::where('ssn', $ssn)->first();
-        return $user->isAdmin;
+        return response()->json(boolval($user->isAdmin));
     }
 
     public function getUsersOfVaccination(string $vac_id) {

@@ -1,1227 +1,891 @@
 {
-	"id": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-	"name": "Laravel VaccinationService",
-	"description": "",
-	"order": [],
-	"folders": [
+	"variables": [],
+	"info": {
+		"name": "Laravel VaccinationService",
+		"_postman_id": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"name": "Auth",
+			"name": "Users",
 			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"order": [
-				"767d2390-1618-d685-ba77-45deb9c8fb22",
-				"af999841-7ad2-cff9-b88d-bae1f986373c"
-			],
-			"owner": "13682127",
-			"folders_order": [],
-			"id": "68d4dd02-33b2-1231-df4e-f4b69126495d"
-		},
-		{
-			"name": "Locations",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"order": [
-				"12379156-88d7-4896-d5f9-485b2df43683",
-				"5a27d368-1dec-836a-b05f-15f952a8cdfd",
-				"7c7ceefa-175e-05c7-9689-e9e475106648",
-				"cfc9bc4e-9670-217e-2faf-18652e78e9fb",
-				"331450f1-d1f5-d30e-a707-2e70b35c6fcb"
-			],
-			"owner": "13682127",
-			"folders_order": [],
-			"id": "19a63325-3143-75e1-70c8-266eae47f3da"
-		},
-		{
-			"name": "Reservations",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"order": [
-				"93cfe842-c5ec-9428-4c12-30863c0494ce",
-				"df6a9270-a17f-5441-0973-318b6ebf8668",
-				"c6d2bb18-fbb6-7b2e-3154-60b192ce40b3",
-				"d3e1b861-4d4a-12b1-704c-fa10f491a613",
-				"cab9a9b3-6c52-340a-25dc-75a5f007b0c7"
-			],
-			"owner": "13682127",
-			"folders_order": [],
-			"id": "f72492e5-4aff-ee06-2478-1b2d57d42888"
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5MTc3NTYyLCJleHAiOjE2MTkxODExNjIsIm5iZiI6MTYxOTE3NzU2MiwianRpIjoiTHF4QnZHbFZvSkdNQnc1MSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoifX0.Mwfs-_1huN8Hr-T6ongI_KYJDrDZ4YYzlBV1lReGn2Y",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "isAdmin",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user/isAdmin/2586231197",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5ODAwNDQ5LCJleHAiOjE2MTk4MDQwNDksIm5iZiI6MTYxOTgwMDQ0OSwianRpIjoiNDc0eDdib1BXU2NOam1qQyIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19.BHRDej_VWV1kdPb0JTs0DOGh0M1hVL5CD4d9NHBWGpw",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findBySSN",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user/2233230779",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ssn\": \"1144080288\",\n    \"email\": \"franz@muster.at\",\n    \"firstName\": \"Franz\",\n    \"lastName\": \"Muster\",\n    \"password\": \"fmuster\",\n    \"gender\": \"male\",\n    \"dateOfBirth\": \"1988.02.08\",\n    \"phoneNumber\": \"\",\n    \"isVaccinated\": 0,\n    \"isAdmin\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user/1144080288",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ssn\": \"1144080288\",\n    \"email\": \"guenther@muster.at\",\n    \"firstName\": \"Günther\",\n    \"lastName\": \"Muster\",\n    \"password\": \"gmuster\",\n    \"gender\": \"male\",\n    \"dateOfBirth\": \"1988.02.08\",\n    \"phoneNumber\": \"\",\n    \"isVaccinated\": 0,\n    \"isAdmin\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user/1144080288",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "States",
 			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"order": [
-				"10f0725f-c67e-0ee8-76ae-87f27a9a67d9",
-				"427a2d64-2509-275f-f7db-270b67d16014",
-				"250fc6b1-e567-9b7a-d8cc-47c97c1c3d00",
-				"f404c71a-4944-573c-2e67-dbb6ffe53fe3",
-				"c92d2231-97b2-7dd1-c737-376a611f818c",
-				"c5923688-3310-f868-cb90-aef92ad20f02"
-			],
-			"owner": "13682127",
-			"folders_order": [],
-			"id": "ccd6027f-7f55-4adc-773d-9383e7adb86b"
+			"item": [
+				{
+					"name": "getAllStates",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/states",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getStateLocations",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state/Oberösterreich/locations",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5NTQ4NDY1LCJleHAiOjE2MTk1NTIwNjUsIm5iZiI6MTYxOTU0ODQ2NSwianRpIjoiRnhETThZQXJORmxKRXNrVCIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoiLCJpc3RBZG1pbiI6MH19.Y_Trm1_n2XeSBLHSle6TszvBP7PIeKj6uVbuAM2AunI",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"Placeholder\",\n    \"imageUrl\": \"https://www.physio-center.at/wp-content/uploads/2016/10/orionthemes-placeholder-image.png\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state/Vorarlberg",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5NDI1MjA1LCJleHAiOjE2MTk0Mjg4MDUsIm5iZiI6MTYxOTQyNTIwNSwianRpIjoiWENOc2NzZUFKTGNHUjZSSCIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoiLCJpc3RBZG1pbiI6MH19._sYeWa6_FZRFrgpOG_VHWcoRy8eJ_uTPH3NDER9NcYw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"Vorarlberg\",\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Flag_of_Vorarlberg_%28state%29.svg/2000px-Flag_of_Vorarlberg_%28state%29.svg.png\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state/Placeholder",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5NDI1MjA1LCJleHAiOjE2MTk0Mjg4MDUsIm5iZiI6MTYxOTQyNTIwNSwianRpIjoiWENOc2NzZUFKTGNHUjZSSCIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoiLCJpc3RBZG1pbiI6MH19._sYeWa6_FZRFrgpOG_VHWcoRy8eJ_uTPH3NDER9NcYw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"name": "Users",
+			"name": "Locations",
 			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"order": [
-				"eccd72ee-7129-65c6-5334-64532cb19dcf",
-				"e22a7dfc-f626-e2d1-1565-5d01c2f05e64",
-				"256daef7-e1b3-9171-d0ed-8d9fb5e4d528",
-				"57674b0f-d59e-682e-2dfd-eaf8b57d37f4",
-				"f444ee61-e393-9601-b8a3-9b3f2271db1a"
-			],
-			"owner": "13682127",
-			"folders_order": [],
-			"id": "d86d68f6-8221-d9f0-fa3d-9df03126b83c"
+			"item": [
+				{
+					"name": "getAllLocations",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/locations",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/location/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/location",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5NTQ4NDY1LCJleHAiOjE2MTk1NTIwNjUsIm5iZiI6MTYxOTU0ODQ2NSwianRpIjoiRnhETThZQXJORmxKRXNrVCIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoiLCJpc3RBZG1pbiI6MH19.Y_Trm1_n2XeSBLHSle6TszvBP7PIeKj6uVbuAM2AunI",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"city\": \"Linz-Land\",\n    \"zipCode\": \"4030\",\n    \"place\": \"Test Place 123\",\n    \"state\": \"Oberösterreich\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/location/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"city\": \"Linz-Stadt\",\n    \"zipCode\": \"4030\",\n    \"place\": \"Volkshaus Ebelsberg | Kremsmünsterer Straße 1-3\",\n    \"state\": \"Oberösterreich\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/location/",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Vaccinations",
 			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"order": [
-				"b6b7b4ba-69c1-c980-a44b-d4a8a61b9c04",
-				"12f37480-d5c3-0e02-ef35-e5ff6dc78ef4",
-				"bf1f1641-2d42-1415-88f9-8f6a3e9fadc5",
-				"1acc2119-6c96-6db0-db80-66e39cc782a3",
-				"f461ba30-f5d6-a570-2163-97c9aec9c4b5",
-				"1d1c696a-048a-0123-6ba6-7f398c2f0782",
-				"3565ef3a-fc53-c33a-e5de-a28ac3424325",
-				"73c9299c-1009-5b25-2ae7-73798f8a5e4d"
-			],
-			"owner": "13682127",
-			"folders_order": [],
-			"id": "359a8423-2901-3357-3d7d-6be4475a0ddd"
-		}
-	],
-	"folders_order": [
-		"d86d68f6-8221-d9f0-fa3d-9df03126b83c",
-		"ccd6027f-7f55-4adc-773d-9383e7adb86b",
-		"19a63325-3143-75e1-70c8-266eae47f3da",
-		"359a8423-2901-3357-3d7d-6be4475a0ddd",
-		"f72492e5-4aff-ee06-2478-1b2d57d42888",
-		"68d4dd02-33b2-1231-df4e-f4b69126495d"
-	],
-	"timestamp": 1618062263370,
-	"owner": "13682127",
-	"public": false,
-	"requests": [
-		{
-			"id": "10f0725f-c67e-0ee8-76ae-87f27a9a67d9",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
+			"item": [
 				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"name": "getAllVaccinations",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccinations",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
 				},
 				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"name": "getAllRaw",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccinations2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5NTU0MzMxLCJleHAiOjE2MTk1NTc5MzEsIm5iZiI6MTYxOTU1NDMzMSwianRpIjoiOTd5QVpSeWFTUDZqdE9FTCIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoiLCJpc3RBZG1pbiI6MH19.fvBbwRzYLYFfjhFZQ8kNJ7gfSTnmnxgDnFw6U82V4Rs",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjIwMDQxNDUxLCJleHAiOjE2MjAwNDUwNTEsIm5iZiI6MTYyMDA0MTQ1MSwianRpIjoiUEJpQWxFZ09scEZTRmRMNyIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19.Etkol-aAA8hXB-RUkF5KfNZZCATMS0k538Jjt5qSzBk",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getAllOfState",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccinations/state/Oberösterreich",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getUsersOfVaccination",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination/1/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjIwMDc3ODI3LCJleHAiOjE2MjAwODE0MjcsIm5iZiI6MTYyMDA3NzgyNywianRpIjoiSGdsa1ljOFJ5NEhiV3d4NiIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19.SJ6wGm4LSshkxJk3BPA5nocQaX4HV5_qJbWgxegfaSM",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5ODExMzE5LCJleHAiOjE2MTk4MTQ5MTksIm5iZiI6MTYxOTgxMTMxOSwianRpIjoidDBNa0FMbndNOVdNNlJyOSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19._9Ih6_CIKA10Q76V9mFhpmoNlHNNHZ-cDX-vEUOvZjE",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2021-04-23\",\n    \"fromTime\": \"15:00:00\",\n    \"toTime\": \"18:00:00\",\n    \"slotSizeInMinutes\": 15,\n    \"availableSlots\": 32,\n    \"totalAttendeesPerSlot\": 5,\n    \"vaccination_location_id\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjIwMDU0MzI4LCJleHAiOjE2MjAwNTc5MjgsIm5iZiI6MTYyMDA1NDMyOCwianRpIjoiWVo0NjdLbWZuQkZtdVRPSyIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19.hdyfqqCanPJCNPEX_12Lzr9pwRtmjRWClqtlW81p0Pc",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2021-04-10\",\n    \"totalAttendeesPerSlot\": 2,\n    \"vaccination_location_id\": 2\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination/21",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5ODExMzE5LCJleHAiOjE2MTk4MTQ5MTksIm5iZiI6MTYxOTgxMTMxOSwianRpIjoidDBNa0FMbndNOVdNNlJyOSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19._9Ih6_CIKA10Q76V9mFhpmoNlHNNHZ-cDX-vEUOvZjE",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
 				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/states",
-			"folder": "ccd6027f-7f55-4adc-773d-9383e7adb86b",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618071944315,
-			"name": "getAllStates",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
+			]
 		},
 		{
-			"id": "12379156-88d7-4896-d5f9-485b2df43683",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
+			"name": "Reservations",
+			"description": "",
+			"item": [
 				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"name": "getAllReservations",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservations",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjIwMDc3ODI3LCJleHAiOjE2MjAwODE0MjcsIm5iZiI6MTYyMDA3NzgyNywianRpIjoiSGdsa1ljOFJ5NEhiV3d4NiIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19.SJ6wGm4LSshkxJk3BPA5nocQaX4HV5_qJbWgxegfaSM",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
 				},
 				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"name": "findByUserId",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservation/user/2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjIwMDc3ODI3LCJleHAiOjE2MjAwODE0MjcsIm5iZiI6MTYyMDA3NzgyNywianRpIjoiSGdsa1ljOFJ5NEhiV3d4NiIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19.SJ6wGm4LSshkxJk3BPA5nocQaX4HV5_qJbWgxegfaSM",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getAllOfVaccination",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservations/vaccination/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjIwMDc3ODI3LCJleHAiOjE2MjAwODE0MjcsIm5iZiI6MTYyMDA3NzgyNywianRpIjoiSGdsa1ljOFJ5NEhiV3d4NiIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19.SJ6wGm4LSshkxJk3BPA5nocQaX4HV5_qJbWgxegfaSM",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5Njc5NzAyLCJleHAiOjE2MTk2ODMzMDIsIm5iZiI6MTYxOTY3OTcwMiwianRpIjoiUlZZcmhBUTdFUEJ3bVJRcSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MCwiaXNWYWNjaW5hdGVkIjowfX0.Q8CRLhFaasi2agjfHdLDaQDkuEf436G97S6_rH48QNk",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"vaccination_id\": 1,\n    \"selectedSlot\": 27\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservation/user/2",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5Njg4MDIyLCJleHAiOjE2MTk2OTE2MjIsIm5iZiI6MTYxOTY4ODAyMiwianRpIjoiQWZBd01IMWcwTFVkS3QwSSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJlbWFpbCI6ImRhbmllbEBzYWl6LmF0IiwiZmlyc3ROYW1lIjoiRGFuaWVsIiwibGFzdE5hbWUiOiJTYWl6IiwiaXNBZG1pbiI6MH19.FUiu1Vng-QXePejTjE87Zi749_DhsmA2XNtPfh4H2AU",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
 				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/locations",
-			"folder": "19a63325-3143-75e1-70c8-266eae47f3da",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618074035572,
-			"name": "getAllLocations",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
+			]
 		},
 		{
-			"id": "12f37480-d5c3-0e02-ef35-e5ff6dc78ef4",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccinations2",
-			"folder": "359a8423-2901-3357-3d7d-6be4475a0ddd",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618075892269,
-			"name": "getAllRaw",
+			"name": "Auth",
 			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "1acc2119-6c96-6db0-db80-66e39cc782a3",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
+			"item": [
 				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"name": "Login",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "",
+								"value": "",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"daniel@saiz.at\",\n\t\"password\": \"dsaiz\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
 				},
 				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"name": "Logout",
+					"request": {
+						"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/auth/logout",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5MTc4ODMxLCJleHAiOjE2MTkxODI0MzEsIm5iZiI6MTYxOTE3ODgzMSwianRpIjoiOGhPVnhVUzE1TEQ2dTkxQSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoiLCJpc3RBZG1pbiI6MH19.my2EEdOx_ePxOEmLjVdLoDWBcavKZitsPEVD-BNCLZ0",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
 				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccinations/state/Oberösterreich",
-			"folder": "359a8423-2901-3357-3d7d-6be4475a0ddd",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618080844568,
-			"name": "getAllOfState",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "1d1c696a-048a-0123-6ba6-7f398c2f0782",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination",
-			"folder": "359a8423-2901-3357-3d7d-6be4475a0ddd",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618080043503,
-			"name": "save",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"date\": \"2021.04.23\",\n    \"fromTime\": \"10:00:00\",\n    \"toTime\": \"18:00:00\",\n    \"availableSlots\": 32,\n    \"totalAttendeesPerSlot\": 5,\n    \"vaccination_location_id\": 1\n}"
-		},
-		{
-			"id": "250fc6b1-e567-9b7a-d8cc-47c97c1c3d00",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state/Oberösterreich/locations",
-			"folder": "ccd6027f-7f55-4adc-773d-9383e7adb86b",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618072951964,
-			"name": "getStateLocations",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "256daef7-e1b3-9171-d0ed-8d9fb5e4d528",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user",
-			"folder": "d86d68f6-8221-d9f0-fa3d-9df03126b83c",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618070321770,
-			"name": "save",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"ssn\": \"1144080288\",\n    \"email\": \"franz@muster.at\",\n    \"firstName\": \"Franz\",\n    \"lastName\": \"Muster\",\n    \"password\": \"fmuster\",\n    \"gender\": \"male\",\n    \"dateOfBirth\": \"1988.02.08\",\n    \"phoneNumber\": \"\",\n    \"isVaccinated\": 0,\n    \"isAdmin\": 0\n}"
-		},
-		{
-			"id": "331450f1-d1f5-d30e-a707-2e70b35c6fcb",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/location/",
-			"folder": "19a63325-3143-75e1-70c8-266eae47f3da",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618075028709,
-			"name": "delete",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": ""
-		},
-		{
-			"id": "3565ef3a-fc53-c33a-e5de-a28ac3424325",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination/1",
-			"folder": "359a8423-2901-3357-3d7d-6be4475a0ddd",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618080405848,
-			"name": "update",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"date\": \"2021.04.10\",\n    \"fromTime\": \"10:00:00\",\n    \"toTime\": \"18:00:00\",\n    \"availableSlots\": 28,\n    \"totalAttendeesPerSlot\": 5,\n    \"vaccination_location_id\": 2\n}"
-		},
-		{
-			"id": "427a2d64-2509-275f-f7db-270b67d16014",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state/1",
-			"folder": "ccd6027f-7f55-4adc-773d-9383e7adb86b",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618071987899,
-			"name": "findById",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "57674b0f-d59e-682e-2dfd-eaf8b57d37f4",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user/1144080288",
-			"folder": "d86d68f6-8221-d9f0-fa3d-9df03126b83c",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618071744364,
-			"name": "update",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"ssn\": \"1144080288\",\n    \"email\": \"guenther@muster.at\",\n    \"firstName\": \"Günther\",\n    \"lastName\": \"Muster\",\n    \"password\": \"gmuster\",\n    \"gender\": \"male\",\n    \"dateOfBirth\": \"1988.02.08\",\n    \"phoneNumber\": \"\",\n    \"isVaccinated\": 0,\n    \"isAdmin\": 0\n}"
-		},
-		{
-			"id": "5a27d368-1dec-836a-b05f-15f952a8cdfd",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/location/1",
-			"folder": "19a63325-3143-75e1-70c8-266eae47f3da",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618075025302,
-			"name": "findById",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "73c9299c-1009-5b25-2ae7-73798f8a5e4d",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination/40",
-			"folder": "359a8423-2901-3357-3d7d-6be4475a0ddd",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618080845584,
-			"name": "delete",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": ""
-		},
-		{
-			"id": "767d2390-1618-d685-ba77-45deb9c8fb22",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": ""
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": ""
-				},
-				{
-					"key": "",
-					"value": "",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/auth/login",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1619178943322,
-			"name": "Login",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n\t\"email\": \"daniel@saiz.at\",\n\t\"password\": \"dsaiz\"\n}"
-		},
-		{
-			"id": "7c7ceefa-175e-05c7-9689-e9e475106648",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/location",
-			"folder": "19a63325-3143-75e1-70c8-266eae47f3da",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618074749997,
-			"name": "save",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"city\": \"Linz-Stadt\",\n    \"zipCode\": \"4030\",\n    \"place\": \"Test Location\",\n    \"state\": \"Wien\"\n}"
-		},
-		{
-			"id": "93cfe842-c5ec-9428-4c12-30863c0494ce",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservations",
-			"folder": "f72492e5-4aff-ee06-2478-1b2d57d42888",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618084777850,
-			"name": "getAllReservations",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "af999841-7ad2-cff9-b88d-bae1f986373c",
-			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5MTc4ODMxLCJleHAiOjE2MTkxODI0MzEsIm5iZiI6MTYxOTE3ODgzMSwianRpIjoiOGhPVnhVUzE1TEQ2dTkxQSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoiLCJpc3RBZG1pbiI6MH19.my2EEdOx_ePxOEmLjVdLoDWBcavKZitsPEVD-BNCLZ0\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": ""
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": ""
-				},
-				{
-					"key": "Authorization",
-					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5MTc4ODMxLCJleHAiOjE2MTkxODI0MzEsIm5iZiI6MTYxOTE3ODgzMSwianRpIjoiOGhPVnhVUzE1TEQ2dTkxQSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoiLCJpc3RBZG1pbiI6MH19.my2EEdOx_ePxOEmLjVdLoDWBcavKZitsPEVD-BNCLZ0",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/auth/logout",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"data": null,
-			"dataMode": "params",
-			"name": "Logout",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1619178925950,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "68d4dd02-33b2-1231-df4e-f4b69126495d"
-		},
-		{
-			"id": "b6b7b4ba-69c1-c980-a44b-d4a8a61b9c04",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccinations",
-			"folder": "359a8423-2901-3357-3d7d-6be4475a0ddd",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618075770197,
-			"name": "getAllVaccinations",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "bf1f1641-2d42-1415-88f9-8f6a3e9fadc5",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination/1",
-			"folder": "359a8423-2901-3357-3d7d-6be4475a0ddd",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618080846255,
-			"name": "findById",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "c5923688-3310-f868-cb90-aef92ad20f02",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state/Placeholder",
-			"folder": "ccd6027f-7f55-4adc-773d-9383e7adb86b",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618072687659,
-			"name": "delete",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": ""
-		},
-		{
-			"id": "c6d2bb18-fbb6-7b2e-3154-60b192ce40b3",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservations/vaccination/1",
-			"folder": "f72492e5-4aff-ee06-2478-1b2d57d42888",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618084774544,
-			"name": "getAllOfVaccination",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "c92d2231-97b2-7dd1-c737-376a611f818c",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state/Placeholder2",
-			"folder": "ccd6027f-7f55-4adc-773d-9383e7adb86b",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618072894923,
-			"name": "update",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"state\": \"Placeholder\",\n    \"imageUrl\": \"https://www.physio-center.at/wp-content/uploads/2016/10/orionthemes-placeholder-image.png\"\n}"
-		},
-		{
-			"id": "cab9a9b3-6c52-340a-25dc-75a5f007b0c7",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservation/user/1",
-			"folder": "f72492e5-4aff-ee06-2478-1b2d57d42888",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618084906658,
-			"name": "delete",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": ""
-		},
-		{
-			"id": "cfc9bc4e-9670-217e-2faf-18652e78e9fb",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/location/1",
-			"folder": "19a63325-3143-75e1-70c8-266eae47f3da",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618074568721,
-			"name": "update",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"city\": \"Linz-Stadt\",\n    \"zipCode\": \"4030\",\n    \"place\": \"Volkshaus Ebelsberg | Kremsmünsterer Straße 1-3\",\n    \"state\": \"Oberösterreich\"\n}"
-		},
-		{
-			"id": "d3e1b861-4d4a-12b1-704c-fa10f491a613",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservation",
-			"folder": "f72492e5-4aff-ee06-2478-1b2d57d42888",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618084779314,
-			"name": "save",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"user_id\": 1,\n    \"vaccination_id\": 1,\n    \"selectedSlot\": 27\n}"
-		},
-		{
-			"id": "df6a9270-a17f-5441-0973-318b6ebf8668",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/reservation/user/1",
-			"folder": "f72492e5-4aff-ee06-2478-1b2d57d42888",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618084916467,
-			"name": "findByUserId",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "e22a7dfc-f626-e2d1-1565-5d01c2f05e64",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user/2233230779",
-			"folder": "d86d68f6-8221-d9f0-fa3d-9df03126b83c",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618070055282,
-			"name": "findBySSN",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "eccd72ee-7129-65c6-5334-64532cb19dcf",
-			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5MTc3NTYyLCJleHAiOjE2MTkxODExNjIsIm5iZiI6MTYxOTE3NzU2MiwianRpIjoiTHF4QnZHbFZvSkdNQnc1MSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoifX0.Mwfs-_1huN8Hr-T6ongI_KYJDrDZ4YYzlBV1lReGn2Y\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jb3ZpZHZhY2NpbmF0aW9uLnMxODEwNDU2MDMxLnN0dWRlbnQua3dtaGdiLmF0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjE5MTc3NTYyLCJleHAiOjE2MTkxODExNjIsIm5iZiI6MTYxOTE3NzU2MiwianRpIjoiTHF4QnZHbFZvSkdNQnc1MSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjIsInNzbiI6IjI1ODYyMzExOTciLCJmaXJzdE5hbWUiOiJEYW5pZWwiLCJsYXN0TmFtZSI6IlNhaXoifX0.Mwfs-_1huN8Hr-T6ongI_KYJDrDZ4YYzlBV1lReGn2Y",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/users",
-			"folder": "d86d68f6-8221-d9f0-fa3d-9df03126b83c",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1619178845931,
-			"name": "getAllUsers",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
-		},
-		{
-			"id": "f404c71a-4944-573c-2e67-dbb6ffe53fe3",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/state",
-			"folder": "ccd6027f-7f55-4adc-773d-9383e7adb86b",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618072043859,
-			"name": "save",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": "{\n    \"state\": \"Placeholder\",\n    \"imageUrl\": \"https://www.physio-center.at/wp-content/uploads/2016/10/orionthemes-placeholder-image.png\"\n}"
-		},
-		{
-			"id": "f444ee61-e393-9601-b8a3-9b3f2271db1a",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/user/1144080288",
-			"folder": "d86d68f6-8221-d9f0-fa3d-9df03126b83c",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618071688577,
-			"name": "delete",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": [],
-			"rawModeData": ""
-		},
-		{
-			"id": "f461ba30-f5d6-a570-2163-97c9aec9c4b5",
-			"headers": "Content-Type: application/json\nAccept: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://covidvaccination.s1810456031.student.kwmhgb.at/api/vaccination/1/users",
-			"folder": "359a8423-2901-3357-3d7d-6be4475a0ddd",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1618081770047,
-			"name": "getUsersOfVaccination",
-			"description": "",
-			"collectionId": "f0a8950c-a5da-59cc-153d-f5abcb4b533b",
-			"responses": []
+			]
 		}
 	]
 }
