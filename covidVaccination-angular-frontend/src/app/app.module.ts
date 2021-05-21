@@ -29,6 +29,7 @@ import { registerLocaleData } from '@angular/common';
 import localeDEAT from '@angular/common/locales/de-AT';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { PopupModalComponent } from './shared/popup-modal/popup-modal.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 registerLocaleData(localeDEAT);
 
 @NgModule({
@@ -67,6 +68,11 @@ registerLocaleData(localeDEAT);
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
       multi: true
     },
     DataStorageService,

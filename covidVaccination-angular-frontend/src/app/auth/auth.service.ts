@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, retry, tap } from 'rxjs/operators';
 import { User } from '../model/user';
 import { StepperService } from '../service/stepper.service';
 
@@ -27,24 +27,27 @@ interface Token {
   providedIn: 'root'
 })
 export class AuthService {
-  private BASE_URL: string = "http://covidvaccination.s1810456031.student.kwmhgb.at/api/auth";
+  private BASE_URL: string = "http://covidvaccination.s1810456031.student.kwmhgb.at/api";
+  private BASE_URL_AUTH: string = `${this.BASE_URL}/auth`;
+  adminStatus: boolean = false;
 
   constructor(private http: HttpClient, private stepperService: StepperService) { }
 
   login (email: string, password: string): Observable<Response> {
-    return this.http.post(`${this.BASE_URL}/login`, {
+    return this.http.post(`${this.BASE_URL_AUTH}/login`, {
       'email': email,
       'password': password
     }).pipe(catchError(this.errorHandler));
   }
 
-  public setSessionStorage(token: string) {
+  setSessionStorage(token: string) {
     sessionStorage.setItem("token", token);
   }
 
-  public decodeToken(): User {
+  decodeToken(): User {
     if (sessionStorage.getItem("token")) {
       const decodedToken = jwt_decode(sessionStorage.getItem("token")) as Token;
+      // this.isAdmin();
       return new User(+decodedToken.user.id, decodedToken.user.ssn, decodedToken.user.email,
                             decodedToken.user.firstName, decodedToken.user.lastName,
                             (+decodedToken.user.isAdmin == 1));
@@ -53,22 +56,25 @@ export class AuthService {
     }
   }
 
-  public getCurrentUser(): User {
+  getCurrentUser(): User {
     return this.decodeToken();
   }
 
-  public logout() {
-    this.http.post(`${this.BASE_URL}/logout`, {});
+  logout() {
+    this.http.post(`${this.BASE_URL_AUTH}/logout`, {});
     sessionStorage.removeItem("token");
+    this.adminStatus = false;
     console.log("logged out");
     this.stepperService.currentStepIndex.next(1);
   }
 
   isAdmin() {
     if (this.isLoggedIn()) {
-      return this.getCurrentUser().isAdmin;
+      this.http.get(`${this.BASE_URL}/user/isAdmin/${this.getCurrentUser().ssn}`)
+        .pipe(retry(3)).pipe(catchError(this.errorHandler))
+        .subscribe(res => this.adminStatus = res );
     } else {
-      return false;
+      this.adminStatus = false;
     }
   }
 

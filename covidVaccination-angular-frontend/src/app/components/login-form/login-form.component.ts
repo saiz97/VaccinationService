@@ -47,6 +47,7 @@ export class LoginFormComponent implements OnInit {
       this.authService.login(val.email, val.password).subscribe(result => {
         this.authService.setSessionStorage(result.access_token);
         this.currentUser = this.authService.getCurrentUser();
+        this.authService.adminStatus = this.currentUser.isAdmin;
         this.user.emit(this.currentUser);
       });
     } else {
