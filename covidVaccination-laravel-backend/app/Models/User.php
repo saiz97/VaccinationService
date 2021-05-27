@@ -66,6 +66,7 @@ class User extends Authenticatable implements JWTSubject
             'firstName' => $this->firstName,
             'lastName' => $this->lastName,
             'isAdmin' => $this->isAdmin,
+            'isVaccinated' => $this->isVaccinated
             ]
         ];
     }

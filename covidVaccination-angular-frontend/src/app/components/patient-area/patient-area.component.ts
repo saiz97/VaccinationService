@@ -35,6 +35,7 @@ export class PatientAreaComponent implements OnInit {
 
     if (this.authService.isLoggedIn()) {
       this.user = this.authService.getCurrentUser()
+      console.log(this.user);
       this.checkVaccinationStatus();
     } else {
       this.initStepperSub();

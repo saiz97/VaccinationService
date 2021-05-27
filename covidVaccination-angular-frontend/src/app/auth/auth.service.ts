@@ -50,7 +50,7 @@ export class AuthService {
       // this.isAdmin();
       return new User(+decodedToken.user.id, decodedToken.user.ssn, decodedToken.user.email,
                             decodedToken.user.firstName, decodedToken.user.lastName,
-                            (+decodedToken.user.isAdmin == 1));
+                            (+decodedToken.user.isAdmin == 1), (+decodedToken.user.isVaccinated == 1));
     } {
       return null;
     }

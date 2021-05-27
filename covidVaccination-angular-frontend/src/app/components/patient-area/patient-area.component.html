@@ -20,8 +20,11 @@
 
 <ng-template #userIsVaccinated>
   <h1>Persönlicher Impfplan</h1>
+  <h3>Angemeldet als: {{user.firstName + " " + user.lastName}}</h3>
+  <p *ngIf="user.isVaccinated">Impfung bereits verabreicht, kann </p>
+
   <h3>Ihre Impfung findet am {{ reservation.vaccinationDate | date:'longDate' }} um {{ reservation.selectedSlotLabel }} statt.</h3>
-  <button class="ui button secondary" type="button" (click)="openModal('cancel-modal')">Reservierung stornieren.</button>
+  <button class="ui button secondary" type="button" (click)="openModal('cancel-modal')" [disabled]="user.isVaccinated">Reservierung stornieren.</button>
 
   <jw-modal id="cancel-modal">
     <h1>Wollen Sie Ihre Reservierung wirklich stornieren?</h1>
